@@ -2,135 +2,133 @@ import os
 import re
 import requests
 import time
-import concurrent.futures
-from datetime import datetime
-
-# ===============================
-# 配置区https://fofa.info/result?qbase64=InVkcHh5IiAmJiBjb3VudHJ5PSJDTiI%3D
-#https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04i
-#https://www.zoomeye.org/searchResult?q=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04i
-FOFA_URLS = {
-    "https://fofa.info/result?qbase64=InVkcHh5IiAmJiBjb3VudHJ5PSJDTiI%3D": "ip.txt",
-}
-HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
-}
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 IP_DIR = "IP_Scan/ip"
-
-# 创建IP目录
 if not os.path.exists(IP_DIR):
     os.makedirs(IP_DIR)
 
-# IP 运营商判断
-def get_isp(ip):
-    # 更准确的IP段匹配
-    telecom_pattern = r"^(1\.|14\.|27\.|36\.|39\.|42\.|49\.|58\.|60\.|101\.|106\.|110\.|111\.|112\.|113\.|114\.|115\.|116\.|117\.|118\.|119\.|120\.|121\.|122\.|123\.|124\.|125\.|126\.|171\.|175\.|182\.|183\.|202\.|203\.|210\.|211\.|218\.|219\.|220\.|221\.|222\.)"
-    unicom_pattern = r"^(42\.1[0-9]{0,2}|43\.|58\.|59\.|60\.|61\.|110\.|111\.|112\.|113\.|114\.|115\.|116\.|117\.|118\.|119\.|120\.|121\.|122\.|123\.|124\.|125\.|126\.|171\.8[0-9]|171\.9[0-9]|171\.1[0-9]{2}|175\.|182\.|183\.|210\.|211\.|218\.|219\.|220\.|221\.|222\.)"
-    mobile_pattern = r"^(36\.|37\.|38\.|39\.1[0-9]{0,2}|42\.2|42\.3|47\.|106\.|111\.|112\.|113\.|114\.|115\.|116\.|117\.|118\.|119\.|120\.|121\.|122\.|123\.|124\.|125\.|126\.|134\.|135\.|136\.|137\.|138\.|139\.|150\.|151\.|152\.|157\.|158\.|159\.|170\.|178\.|182\.|183\.|184\.|187\.|188\.|189\.)"
-    
-    if re.match(telecom_pattern, ip):
-        return "电信"
-    elif re.match(unicom_pattern, ip):
-        return "联通"
-    elif re.match(mobile_pattern, ip):
-        return "移动"
-    else:
-        return "未知"
+HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+}
 
-# 获取IP地理信息
-def get_ip_info(ip_port):
+def fetch_tonkiang_ips():
+    """从 tonkiang.us 酒店源专页获取 IP:端口 列表"""
+    url = "http://tonkiang.us/hoteliptv.php"
+    ips = []
     try:
-        ip = ip_port.split(":")[0]
-        # 添加重试机制
-        for attempt in range(3):
-            try:
-                res = requests.get(f"http://ip-api.com/json/{ip}?lang=zh-CN", 
-                                  timeout=10, headers=HEADERS)
-                if res.status_code == 200:
-                    data = res.json()
-                    if data.get("status") == "success":
-                        province = data.get("regionName", "未知")
-                        isp = get_isp(ip)
-                        return province, isp, ip_port
-                break
-            except requests.RequestException:
-                if attempt == 2:  # 最后一次尝试失败
-                    return None, None, ip_port
-                time.sleep(1)
-    except Exception:
-        pass
-    return None, None, ip_port
+        resp = requests.get(url, headers=HEADERS, timeout=20)
+        if resp.status_code != 200:
+            print(f"❌ 请求失败: {resp.status_code}")
+            return ips
+        # 提取 IP:端口 格式
+        pattern = r'(\d+\.\d+\.\d+\.\d+):(\d+)'
+        matches = re.findall(pattern, resp.text)
+        for ip, port in matches:
+            ips.append(f"{ip}:{port}")
+        print(f"✅ 从 tonkiang.us 获取 {len(ips)} 个原始 IP")
+    except Exception as e:
+        print(f"❌ 爬取失败: {e}")
+    return ips
 
-# 读取现有文件内容并去重
-def read_existing_ips(filepath):
-    existing_ips = set()
-    if os.path.exists(filepath):
+def get_isp_batch(ip_list, batch_size=100):
+    """
+    使用 ip-api.com 批量查询 IP 所属运营商
+    返回字典 {ip_port: "联通"/"移动"/"电信"/"未知"}
+    """
+    result = {}
+    for i in range(0, len(ip_list), batch_size):
+        batch = ip_list[i:i+batch_size]
+        # 构建批量查询URL
+        ips_str = ",".join([item.split(":")[0] for item in batch])
+        url = f"http://ip-api.com/batch/{ips_str}?lang=zh-CN"
         try:
-            with open(filepath, 'r', encoding='utf-8') as f:
-                for line in f:
-                    ip = line.strip()
-                    if ip:  # 确保不是空行
-                        existing_ips.add(ip)
-            print(f"📖 从 {os.path.basename(filepath)} 读取到 {len(existing_ips)} 个现有IP")
+            resp = requests.get(url, timeout=30)
+            if resp.status_code == 200:
+                data = resp.json()
+                if len(data) == len(batch):
+                    for idx, item in enumerate(data):
+                        ip_port = batch[idx]
+                        if item.get("status") == "success":
+                            isp_raw = item.get("isp", "")
+                            # 判断运营商
+                            if "联通" in isp_raw or "Unicom" in isp_raw:
+                                isp = "联通"
+                            elif "移动" in isp_raw or "Mobile" in isp_raw:
+                                isp = "移动"
+                            elif "电信" in isp_raw or "Telecom" in isp_raw:
+                                isp = "电信"
+                            else:
+                                isp = "未知"
+                            result[ip_port] = isp
+                        else:
+                            result[ip_port] = "未知"
+                else:
+                    print(f"⚠️ 批量查询返回数量不符: {len(data)} vs {len(batch)}")
+            else:
+                print(f"⚠️ 批量查询 HTTP 错误: {resp.status_code}")
         except Exception as e:
-            print(f"❌ 读取文件 {filepath} 失败: {e}")
-    return existing_ips
+            print(f"❌ 批量查询异常: {e}")
+        # 控制请求频率，避免被限制
+        time.sleep(2)
+    return result
 
-# 第一阶段：爬取和分类
-def first_stage():
-    all_ips = set()
+def save_ips_by_province(ips):
+    """按省份和运营商分类保存（只保留联通和移动）"""
+    # 先获取所有 IP 的运营商信息
+    isp_dict = get_isp_batch(ips)
     
-    for url, filename in FOFA_URLS.items():
-        print(f"📡 正在爬取 {filename} ...")
-        try:
-            r = requests.get(url, headers=HEADERS, timeout=15)
-            print(r.text)
-            # 改进的正则表达式匹配
-            urls_all = re.findall(r'<a href="http://(.*?)"', r.text)
-            # 过滤出有效的IP:端口格式
-            all_ips.update(u.strip() for u in urls_all)
-            
-            print(f"✅ 从 {filename} 获取到 {len(urls_all)} 个IP，其中 {len(all_ips)} 个有效")
-        except Exception as e:
-            print(f"❌ 爬取失败：{e}")
-        time.sleep(3)
+    # 过滤出联通和移动的 IP
+    filtered_ips = [ip for ip, isp in isp_dict.items() if isp in ("联通", "移动")]
+    print(f"📊 过滤后剩余 {len(filtered_ips)} 个联通/移动 IP")
     
-    print(f"🔍 总共获取到 {len(all_ips)} 个有效IP")
-    
-    # 使用多线程加速IP信息查询
+    # 对过滤后的 IP 获取省份信息并分类保存
     province_isp_dict = {}
-    with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
-        future_to_ip = {executor.submit(get_ip_info, ip): ip for ip in all_ips}
-        
-        for future in concurrent.futures.as_completed(future_to_ip):
+    with ThreadPoolExecutor(max_workers=10) as executor:
+        futures = {executor.submit(get_ip_info, ip): ip for ip in filtered_ips}
+        for future in as_completed(futures):
             province, isp, ip_port = future.result()
             if province and isp and isp != "未知":
                 fname = f"{province}{isp}.txt"
                 province_isp_dict.setdefault(fname, set()).add(ip_port)
     
-    # 保存到文件（追加模式，不去重）
-    for fname, new_ips in province_isp_dict.items():
+    for fname, ip_set in province_isp_dict.items():
         filepath = os.path.join(IP_DIR, fname)
-        
-        # 读取现有IP
-        existing_ips = read_existing_ips(filepath)
-        
-        # 合并新旧IP并去重
-        all_ips_for_file = existing_ips.union(new_ips)
-        
-        # 写入文件
+        existing = set()
+        if os.path.exists(filepath):
+            with open(filepath, 'r', encoding='utf-8') as f:
+                existing.update(line.strip() for line in f if line.strip())
+        all_ips = existing.union(ip_set)
         with open(filepath, 'w', encoding='utf-8') as f:
-            for ip in all_ips_for_file:
+            for ip in sorted(all_ips):
                 f.write(ip + '\n')
-        
-        added_count = len(all_ips_for_file) - len(existing_ips)
-        print(f"💾 已更新 {fname}，新增 {added_count} 个IP，总计 {len(all_ips_for_file)} 个IP")
-    
-    print(f"✅ 任务完成！共处理 {len(province_isp_dict)} 个分类文件")
+        print(f"💾 保存 {fname}: {len(all_ips)} 个IP")
+    print(f"✅ 总共保存到 {len(province_isp_dict)} 个分类文件")
 
-# 主函数
+def get_ip_info(ip_port):
+    """获取单个 IP 的省份和运营商（已在批量阶段获得运营商，这里只获取省份）"""
+    ip = ip_port.split(":")[0]
+    try:
+        resp = requests.get(f"http://ip-api.com/json/{ip}?lang=zh-CN", timeout=10)
+        if resp.status_code == 200:
+            data = resp.json()
+            if data.get("status") == "success":
+                province = data.get("regionName", "未知")
+                # 复用之前获取的运营商结果？这里我们重新获取一次，也可从之前结果传入
+                # 但为了节省请求，我们可以从过滤结果中传入运营商，这里为了简化，再查一次
+                # 更好的做法：在过滤阶段同时获取省份，但为了保持结构，这里再查一次省份
+                return province, "联通" if "联通" in data.get("isp", "") else "移动", ip_port
+    except:
+        pass
+    return None, None, ip_port
+
+def main():
+    print("🚀 从 tonkiang.us 获取酒店源 IP...")
+    ips = fetch_tonkiang_ips()
+    if not ips:
+        print("❌ 未获取到任何 IP，退出")
+        return
+    save_ips_by_province(ips)
+
 if __name__ == "__main__":
-    print("🚀 开始IP爬取和分类...")
-    print(f"📁 结果将保存到 {IP_DIR} 目录")
-    first_stage()
+    main()
