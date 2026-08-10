@@ -9,30 +9,52 @@ if not os.path.exists(IP_DIR):
     os.makedirs(IP_DIR)
 
 HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+    "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Referer": "https://tonkiang.us/",
+    "Connection": "keep-alive",
+    "Upgrade-Insecure-Requests": "1",
+    "Sec-Fetch-Dest": "document",
+    "Sec-Fetch-Mode": "navigate",
+    "Sec-Fetch-Site": "same-origin",
+    "Sec-Fetch-User": "?1",
+    "Cache-Control": "max-age=0",
 }
 
-def fetch_ips_from_html(url):
-    """从 HTML 中提取所有 IP:端口"""
-    try:
-        resp = requests.get(url, headers=HEADERS, timeout=20)
-        if resp.status_code != 200:
-            print(f"❌ 请求失败: {resp.status_code}")
-            return []
-        html = resp.text
-        # 匹配 IP:端口（可能包含在链接、表格等中）
-        pattern = r'(\d+\.\d+\.\d+\.\d+):(\d+)'
-        matches = re.findall(pattern, html)
-        # 去重
-        ips = list(set([f"{ip}:{port}" for ip, port in matches if int(port) >= 1 and int(port) <= 65535]))
-        print(f"✅ 从 HTML 提取到 {len(ips)} 个 IP:端口")
-        return ips
-    except Exception as e:
-        print(f"❌ 请求失败: {e}")
-        return []
+def fetch_ips_from_html(url, retries=3):
+    """带重试的 HTML 获取，返回 IP:端口 列表"""
+    session = requests.Session()
+    for attempt in range(retries):
+        try:
+            resp = session.get(url, headers=HEADERS, timeout=20)
+            if resp.status_code == 200:
+                html = resp.text
+                # 如果 HTML 为空或太短，可能被反爬
+                if len(html) < 1000:
+                    print(f"⚠️ 第 {attempt+1} 次尝试：HTML 内容过短，可能被反爬")
+                    time.sleep(2)
+                    continue
+                # 匹配 IP:端口
+                pattern = r'(\d+\.\d+\.\d+\.\d+):(\d+)'
+                matches = re.findall(pattern, html)
+                ips = list(set([f"{ip}:{port}" for ip, port in matches if int(port) >= 1 and int(port) <= 65535]))
+                print(f"✅ 从 HTML 提取到 {len(ips)} 个 IP:端口")
+                return ips
+            elif resp.status_code == 403:
+                print(f"❌ 第 {attempt+1} 次尝试：403 禁止访问，可能需添加更多头部或使用代理")
+                time.sleep(3)
+            else:
+                print(f"❌ 第 {attempt+1} 次尝试：状态码 {resp.status_code}")
+                time.sleep(2)
+        except Exception as e:
+            print(f"❌ 第 {attempt+1} 次尝试请求失败: {e}")
+            time.sleep(2)
+    return []
 
 def get_isp_and_region(ip):
-    """通过 ip-api.com 获取运营商和省份"""
+    """通过 ip-api.com 获取运营商和省份（增加重试）"""
     try:
         resp = requests.get(f"http://ip-api.com/json/{ip}?lang=zh-CN", timeout=10)
         if resp.status_code == 200:
@@ -54,9 +76,12 @@ def get_isp_and_region(ip):
 
 def save_ips_by_region(ips):
     """按省份和运营商分类保存（仅保留联通和移动）"""
-    # 先查询所有 IP 的运营商和省份（多线程）
+    if not ips:
+        print("⚠️ 没有 IP 可保存")
+        return
+    # 多线程查询 IP 信息
     ip_info = {}
-    with ThreadPoolExecutor(max_workers=20) as executor:
+    with ThreadPoolExecutor(max_workers=10) as executor:
         futures = {executor.submit(get_isp_and_region, ip.split(":")[0]): ip for ip in ips}
         for future in as_completed(futures):
             ip_port = futures[future]
@@ -64,16 +89,17 @@ def save_ips_by_region(ips):
             if region and isp and isp in ("联通", "移动"):
                 ip_info[ip_port] = (region, isp)
 
-    # 按省份+运营商分组
+    if not ip_info:
+        print("⚠️ 没有找到联通或移动的 IP")
+        return
+
     groups = {}
     for ip_port, (region, isp) in ip_info.items():
         filename = f"{region}{isp}.txt"
         groups.setdefault(filename, set()).add(ip_port)
 
-    # 写入文件
     for filename, ip_set in groups.items():
         filepath = os.path.join(IP_DIR, filename)
-        # 读取已有内容去重
         existing = set()
         if os.path.exists(filepath):
             with open(filepath, 'r', encoding='utf-8') as f:
@@ -84,14 +110,13 @@ def save_ips_by_region(ips):
                 f.write(ip + '\n')
         print(f"💾 保存 {filename}: {len(all_ips)} 个IP")
 
-    print(f"✅ 总共保存到 {len(groups)} 个文件")
-
 def main():
     print("🚀 从 tonkiang.us 获取酒店源 IP...")
     url = "https://tonkiang.us/iptvhotelx.php"
     ips = fetch_ips_from_html(url)
     if not ips:
-        print("❌ 未获取到任何 IP，退出")
+        print("❌ 未获取到任何 IP，请检查网络或手动维护 IP 列表")
+        print("💡 建议手动访问 https://tonkiang.us/iptvhotelx.php，搜索'联通'或'移动'，复制 IP 到 Hotel/ip/hotel_ip.txt")
         return
     save_ips_by_region(ips)
 
