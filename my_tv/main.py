@@ -11,6 +11,10 @@ import urllib3
 import re
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
+# ==================== 配置区 ====================
+# 只处理包含以下运营商关键词的城市（如“联通”、“移动”）
+ALLOWED_OPERATORS = ["联通", "移动"]
+
 # 城市特定的测试流地址
 CITY_STREAMS = {
     "安徽电信": ["rtp/238.1.79.27:4328"],
@@ -373,7 +377,7 @@ def validate_city_ips(city_name, city_config):
     valid_ips = []
     
     # 使用线程池并发测试
-    with ThreadPoolExecutor(max_workers=5) as executor:  # 减少线程数
+    with ThreadPoolExecutor(max_workers=5) as executor:
         futures = []
         for ip_port in ip_configs:
             future = executor.submit(test_ip_single, ip_port, test_stream)
@@ -924,6 +928,7 @@ def main():
     print(f"GitHub仓库: {GITHUB_BASE_URL}")
     print(f"工作目录: {WORKING_DIR}")
     print(f"my_tv目录: {MY_TV_DIR}")
+    print(f"仅处理运营商: {ALLOWED_OPERATORS}")
     print("="*60)
     
     # 清理旧的输出目录
@@ -950,6 +955,11 @@ def main():
     processed_cities = []
     
     for city_name in CITY_STREAMS:
+        # 检查是否应处理该城市（运营商过滤）
+        if not any(op in city_name for op in ALLOWED_OPERATORS):
+            print(f"跳过 {city_name}（非允许运营商）")
+            continue
+        
         print(f"\n{'='*60}")
         print(f"处理城市: {city_name}")
         print(f"{'='*60}")
