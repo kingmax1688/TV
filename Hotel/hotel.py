@@ -437,7 +437,7 @@ CHANNEL_MAPPING = {
     "网络棋牌": ["网络棋牌", "IPTV网络棋牌"],
 }
 
-RESULTS_PER_CHANNEL = 20
+RESULTS_PER_CHANNEL = 30
 
 # 读取台标文件
 def read_logo_file():
