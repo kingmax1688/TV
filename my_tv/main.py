@@ -12,10 +12,10 @@ import re
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # ==================== 配置区 ====================
-# 只处理包含以下运营商关键词的城市（如“联通”、“移动”）
+# 只处理包含以下运营商关键词的城市
 ALLOWED_OPERATORS = ["联通", "移动"]
 
-# 城市特定的测试流地址（仅用于验证IP有效性，但本地模式不测速，可保留）
+# 城市特定的测试流地址（仅用于验证IP有效性）
 CITY_STREAMS = {
     "北京联通": ["rtp/239.3.1.241:8000"],
     "天津联通": ["rtp/225.1.1.111:5002"],
@@ -33,7 +33,6 @@ CITY_STREAMS = {
     "黑龙江联通": ["rtp/229.58.190.150:5000"],
     "四川移动": ["rtp/239.11.0.78:5140"],
     "四川联通": ["rtp/239.0.0.1:5140"],
-    # 你只需要保留你需要的城市，其他可删除
 }
 
 # 远程GitHub仓库的基础URL（已弃用，保留仅为兼容）
@@ -46,7 +45,7 @@ OUTPUT_DIR = os.path.join(MY_TV_DIR, "output")
 
 
 def get_city_config(city_name):
-    """根据城市名获取配置（仅用于本地模式，不依赖远程）"""
+    """根据城市名获取配置"""
     if city_name in CITY_STREAMS:
         return {
             "test_streams": CITY_STREAMS[city_name]
@@ -230,16 +229,18 @@ def test_ip_single(ip_port, test_stream, timeout=8):
         return None, 0
 
 
+# ========== 关键修改：validate_city_ips 不删除IP ==========
 def validate_city_ips(city_name, city_config):
     """
-    验证城市IP（仅从本地 my_tv/ip/{城市名}_ip.txt 读取，不依赖远程）
-    返回格式: [(ip_port, speed), ...]
+    验证城市IP（仅从本地 my_tv/ip/{城市名}_ip.txt 读取）
+    - 保留所有IP，不删除任何条目
+    - 如果测速，则记录速度值，但全部保留
     """
     local_ip_file = os.path.join(MY_TV_DIR, "ip", f"{city_name}_ip.txt")
     if not os.path.exists(local_ip_file):
         print(f"本地IP文件不存在: {local_ip_file}")
         return []
-    
+
     print(f"读取本地IP文件: {local_ip_file}")
     ip_configs = []
     with open(local_ip_file, 'r', encoding='utf-8') as f:
@@ -249,48 +250,34 @@ def validate_city_ips(city_name, city_config):
                 cleaned_ip = clean_ip_line(line)
                 if cleaned_ip and ':' in cleaned_ip:
                     ip_configs.append(cleaned_ip)
-    
+
     if not ip_configs:
         print(f"{city_name} 本地IP文件为空")
         return []
-    
+
     print(f"从本地读取到 {len(ip_configs)} 个IP")
-    
-    # 如果有测试流地址，进行测速；否则直接返回所有IP（速度为0）
-    test_stream = city_config["test_streams"][0] if city_config.get("test_streams") else None
-    if not test_stream:
-        print(f"{city_name} 没有测试流地址，直接使用所有IP")
-        return [(ip, 0) for ip in ip_configs]
-    
-    print(f"开始验证 {city_name} 的 {len(ip_configs)} 个IP...")
-    valid_ips = []
-    with ThreadPoolExecutor(max_workers=5) as executor:
-        futures = []
-        for ip_port in ip_configs:
-            future = executor.submit(test_ip_single, ip_port, test_stream)
-            futures.append(future)
-        for future in as_completed(futures):
-            ip_port, speed = future.result()
-            if ip_port:
-                valid_ips.append((ip_port, speed))
-    
-    valid_ips.sort(key=lambda x: x[1], reverse=True)
-    top_ips = valid_ips[:3] if len(valid_ips) >= 3 else valid_ips
-    
-    # 保存到 my_tv/ip/ 目录（缓存）
-    local_ip_file_out = os.path.join(MY_TV_DIR, "ip", f"{city_name}_ip.txt")
-    os.makedirs(os.path.dirname(local_ip_file_out), exist_ok=True)
-    if top_ips:
-        with open(local_ip_file_out, 'w', encoding='utf-8') as f:
-            for ip_port, speed in top_ips:
-                f.write(f"{ip_port} {speed:.2f} KB/s\n")
-        print(f"✓ {city_name} 验证完成: 可用IP {len(top_ips)} 个")
-        return top_ips
+
+    test_stream = city_config.get("test_streams", [None])[0]
+    if test_stream:
+        print(f"开始测速，但保留所有IP...")
+        valid_ips = []
+        with ThreadPoolExecutor(max_workers=5) as executor:
+            futures = []
+            for ip_port in ip_configs:
+                future = executor.submit(test_ip_single, ip_port, test_stream)
+                futures.append(future)
+            for future in as_completed(futures):
+                ip_port, speed = future.result()
+                if ip_port:
+                    valid_ips.append((ip_port, speed))
+        # 按速度排序，但保留全部
+        valid_ips.sort(key=lambda x: x[1], reverse=True)
+        # 返回全部IP，即使速度可能为0
+        return valid_ips if valid_ips else [(ip, 0) for ip in ip_configs]
     else:
-        with open(local_ip_file_out, 'w', encoding='utf-8') as f:
-            pass
-        print(f"✗ {city_name} 没有可用的IP")
-        return []
+        # 没有测试流，返回所有IP（速度为0）
+        return [(ip, 0) for ip in ip_configs]
+# ========== 修改结束 ==========
 
 
 def read_template_file(city_name):
