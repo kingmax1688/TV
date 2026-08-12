@@ -1,17 +1,15 @@
 #EXTM3U
-#EXTINF:-1 tvg-id="" tvg-name="浙江卫视" group-title="示例频道",浙江卫视
-http://ali-m-l.cztv.com/channels/lantian/channel001/1080p.m3u8
 #EXTINF:-1 tvg-id="CCTV-1 综合" tvg-name="CCTV-1 综合" group-title="央视频道",CCTV-1 综合
 http://www.alihomes.top:8188/rtp/239.254.96.82:7640
 #EXTINF:-1 tvg-id="CCTV-2 财经" tvg-name="CCTV-2 财经" group-title="央视频道",CCTV-2 财经
 http://www.alihomes.top:8188/rtp/239.254.96.124:7084
-#EXTINF:-1 tvg-id="CCTV-3 综艺" tvg-name="CCTV-3 综艺" group-title="央视频道",CCTV-3 综艺
+#EXTINF:-1 tvg-id="CCTV-3 综艺2" tvg-name="CCTV-3 综艺2" group-title="央视频道",CCTV-3 综艺2
 http://www.alihomes.top:8188/rtp/39.254.96.67:7520
 #EXTINF:-1 tvg-id="CCTV-4 中文国际" tvg-name="CCTV-4 中文国际" group-title="央视频道",CCTV-4 中文国际
 http://www.alihomes.top:8188/rtp/239.254.96.180:7092
 #EXTINF:-1 tvg-id="CCTV-5 体育" tvg-name="CCTV-5 体育" group-title="央视频道",CCTV-5 体育
 http://www.alihomes.top:8188/rtp/239.254.96.66:7512
-#EXTINF:-1 tvg-id="CCTV-5 体育" tvg-name="CCTV-5 体育" group-title="央视频道",CCTV-5 体育
+#EXTINF:-1 tvg-id="CCTV-5+ 体育赛事" tvg-name="CCTV-5+ 体育赛事" group-title="央视频道",CCTV-5+ 体育赛事
 http://www.alihomes.top:8188/rtp/239.254.96.83:7004
 #EXTINF:-1 tvg-id="CCTV-6 电影" tvg-name="CCTV-6 电影" group-title="央视频道",CCTV-6 电影
 http://www.alihomes.top:8188/rtp/239.254.96.63:7488
@@ -43,18 +41,12 @@ http://www.alihomes.top:8188/rtp/239.254.96.155:7152
 http://www.alihomes.top:8188/rtp/239.254.96.58:7448
 #EXTINF:-1 tvg-id="北京卫视" tvg-name="北京卫视" group-title="卫视频道",北京卫视
 http://www.alihomes.top:8188/rtp/239.254.96.84:7656
-#EXTINF:-1 tvg-id="北京卫视" tvg-name="北京卫视" group-title="卫视频道",北京卫视
-http://www.alihomes.top:8188/rtp/239.254.96.158:8220
 #EXTINF:-1 tvg-id="东方卫视" tvg-name="东方卫视" group-title="卫视频道",东方卫视
 http://www.alihomes.top:8188/rtp/239.254.96.90:7704
 #EXTINF:-1 tvg-id="广东卫视" tvg-name="广东卫视" group-title="卫视频道",广东卫视
 http://www.alihomes.top:8188/rtp/239.254.96.130:7048
-#EXTINF:-1 tvg-id="广东卫视" tvg-name="广东卫视" group-title="卫视频道",广东卫视
-http://www.alihomes.top:8188/rtp/239.254.96.159:8220
 #EXTINF:-1 tvg-id="深圳卫视" tvg-name="深圳卫视" group-title="卫视频道",深圳卫视
 http://www.alihomes.top:8188/rtp/239.254.96.87:7020
-#EXTINF:-1 tvg-id="深圳卫视" tvg-name="深圳卫视" group-title="卫视频道",深圳卫视
-http://www.alihomes.top:8188/rtp/239.254.96.160:8220
 #EXTINF:-1 tvg-id="浙江卫视" tvg-name="浙江卫视" group-title="卫视频道",浙江卫视
 http://www.alihomes.top:8188/rtp/239.254.96.89:7696
 #EXTINF:-1 tvg-id="江苏卫视" tvg-name="江苏卫视" group-title="卫视频道",江苏卫视
@@ -101,6 +93,12 @@ http://www.alihomes.top:8188/rtp/239.254.96.132:7056
 http://www.alihomes.top:8188/rtp/239.254.96.161:8220
 #EXTINF:-1 tvg-id="三沙卫视" tvg-name="三沙卫视" group-title="卫视频道",三沙卫视
 http://www.alihomes.top:8188/rtp/239.254.96.184:7158
+#EXTINF:-1 tvg-id="北京卫视4K" tvg-name="北京卫视4K" group-title="卫视频道",北京卫视4K
+http://www.alihomes.top:8188/rtp/239.254.96.158:8220
+#EXTINF:-1 tvg-id="广东卫视4K" tvg-name="广东卫视4K" group-title="卫视频道",广东卫视4K
+http://www.alihomes.top:8188/rtp/239.254.96.159:8220
+#EXTINF:-1 tvg-id="深圳卫视4K" tvg-name="深圳卫视4K" group-title="卫视频道",深圳卫视4K
+http://www.alihomes.top:8188/rtp/239.254.96.160:8220
 #EXTINF:-1 tvg-id="爱上4K" tvg-name="爱上4K" group-title="4K专区",爱上4K
 http://www.alihomes.top:8188/rtp/239.254.96.193:8182
 #EXTINF:-1 tvg-id="睛彩青少" tvg-name="睛彩青少" group-title="体育频道",睛彩青少

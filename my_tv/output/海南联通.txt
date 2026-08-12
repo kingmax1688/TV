@@ -1,12 +1,10 @@
-2026/08/12 19:54更新,#genre#
-浙江卫视,http://ali-m-l.cztv.com/channels/lantian/channel001/1080p.m3u8
 央视频道,#genre#
 CCTV-1 综合,http://www.alihomes.top:8188/rtp/239.254.96.82:7640$海南联通
 CCTV-2 财经,http://www.alihomes.top:8188/rtp/239.254.96.124:7084$海南联通
-CCTV-3 综艺,http://www.alihomes.top:8188/rtp/39.254.96.67:7520$海南联通
+CCTV-3 综艺2,http://www.alihomes.top:8188/rtp/39.254.96.67:7520$海南联通
 CCTV-4 中文国际,http://www.alihomes.top:8188/rtp/239.254.96.180:7092$海南联通
 CCTV-5 体育,http://www.alihomes.top:8188/rtp/239.254.96.66:7512$海南联通
-CCTV-5 体育,http://www.alihomes.top:8188/rtp/239.254.96.83:7004$海南联通
+CCTV-5+ 体育赛事,http://www.alihomes.top:8188/rtp/239.254.96.83:7004$海南联通
 CCTV-6 电影,http://www.alihomes.top:8188/rtp/239.254.96.63:7488$海南联通
 CCTV-7 国防军事,http://www.alihomes.top:8188/rtp/239.254.96.125:7104$海南联通
 CCTV-8 电视剧,http://www.alihomes.top:8188/rtp/239.254.96.62:7480$海南联通
@@ -23,12 +21,9 @@ CETV1,http://www.alihomes.top:8188/rtp/239.254.96.155:7152$海南联通
 CGTN纪录,http://www.alihomes.top:8188/rtp/239.254.96.58:7448$海南联通
 卫视频道,#genre#
 北京卫视,http://www.alihomes.top:8188/rtp/239.254.96.84:7656$海南联通
-北京卫视,http://www.alihomes.top:8188/rtp/239.254.96.158:8220$海南联通
 东方卫视,http://www.alihomes.top:8188/rtp/239.254.96.90:7704$海南联通
 广东卫视,http://www.alihomes.top:8188/rtp/239.254.96.130:7048$海南联通
-广东卫视,http://www.alihomes.top:8188/rtp/239.254.96.159:8220$海南联通
 深圳卫视,http://www.alihomes.top:8188/rtp/239.254.96.87:7020$海南联通
-深圳卫视,http://www.alihomes.top:8188/rtp/239.254.96.160:8220$海南联通
 浙江卫视,http://www.alihomes.top:8188/rtp/239.254.96.89:7696$海南联通
 江苏卫视,http://www.alihomes.top:8188/rtp/239.254.96.88:7688$海南联通
 湖南卫视,http://www.alihomes.top:8188/rtp/239.254.96.85:7664$海南联通
@@ -52,6 +47,9 @@ CGTN纪录,http://www.alihomes.top:8188/rtp/239.254.96.58:7448$海南联通
 辽宁卫视,http://www.alihomes.top:8188/rtp/239.254.96.132:7056$海南联通
 兵团卫视,http://www.alihomes.top:8188/rtp/239.254.96.161:8220$海南联通
 三沙卫视,http://www.alihomes.top:8188/rtp/239.254.96.184:7158$海南联通
+北京卫视4K,http://www.alihomes.top:8188/rtp/239.254.96.158:8220$海南联通
+广东卫视4K,http://www.alihomes.top:8188/rtp/239.254.96.159:8220$海南联通
+深圳卫视4K,http://www.alihomes.top:8188/rtp/239.254.96.160:8220$海南联通
 4K专区,#genre#
 爱上4K,http://www.alihomes.top:8188/rtp/239.254.96.193:8182$海南联通
 体育频道,#genre#
