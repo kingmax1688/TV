@@ -1,2 +1,2 @@
-triq.cc:8012
-shunyi-home.wangbin.us:4022
+shunyi-home.wangbin.us:4022 419.47 KB/s
+triq.cc:8012 329.64 KB/s
