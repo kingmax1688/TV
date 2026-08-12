@@ -18,7 +18,6 @@ CGTN俄语,http://ipipip/rtp/239.3.1.220:4220
 厦门卫视,http://ipipip/rtp/239.3.1.143:4120
 
 4K专区,#genre#
-
 北京卫视4K,http://ipipip/rtp/239.3.1.139:8001
 东方卫视4K,http://ipipip/rtp/239.3.1.119:3006
 广东卫视4K,http://ipipip/rtp/239.3.1.203:2000
