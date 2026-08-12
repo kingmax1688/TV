@@ -1,1 +1,81 @@
+CCTV-1 综合,http://ipipip/rtp/239.254.96.82:7640
+CCTV-2 财经,http://ipipip/rtp/239.254.96.124:7084
+CCTV-3 综艺2,http://ipipip/rtp/39.254.96.67:7520
+CCTV-4 中文国际,http://ipipip/rtp/239.254.96.180:7092
+CCTV-5 体育,http://ipipip/rtp/239.254.96.66:7512
+CCTV-5+ 体育赛事,http://ipipip/rtp/239.254.96.83:7004
+CCTV-6 电影,http://ipipip/rtp/239.254.96.63:7488
+CCTV-7 国防军事,http://ipipip/rtp/239.254.96.125:7104
+CCTV-8 电视剧,http://ipipip/rtp/239.254.96.62:7480
+CCTV-9 纪录,http://ipipip/rtp/239.254.96.126:7112
+CCTV-10 科教,http://ipipip/rtp/239.254.96.127:7116
+CCTV-11 戏曲,http://ipipip/rtp/239.254.96.187:8166
+CCTV-12 社会与法,http://ipipip/rtp/239.254.96.128:7124
+CCTV-13 新闻,http://ipipip/rtp/239.254.96.200:8205
+CCTV-14 少儿,http://ipipip/rtp/239.254.96.129:7132
+CCTV-15 音乐,http://ipipip/rtp/239.254.96.188:8170
+CCTV-16 奥林匹克,http://ipipip/239.254.96.170:8206
+CCTV-17 农业农村,http://ipipip/rtp/239.254.96.57:8204
+CCTV-4K http://ipipip/rtp/239.254.96.56:7432
+CETV1,http://ipipip/rtp/239.254.96.155:7152
+CGTN纪录,http://ipipip/rtp/239.254.96.58:7448
+
+卫视频道,#genre#
+北京卫视,http://ipipip/rtp/239.254.96.84:7656
+东方卫视,http://ipipip/rtp/239.254.96.90:7704
+广东卫视,http://ipipip/rtp/239.254.96.130:7048
+深圳卫视,http://ipipip/rtp/239.254.96.87:7020
+浙江卫视,http://ipipip/rtp/239.254.96.89:7696
+江苏卫视,http://ipipip/rtp/239.254.96.88:7688
+湖南卫视,http://ipipip/rtp/239.254.96.85:7664
+山东卫视,http://ipipip/rtp/239.254.96.131:7052
+河南卫视,http://ipipip/rtp/239.254.96.178:8220
+湖北卫视,http://ipipip/rtp/239.254.96.91:7712
+河北卫视,http://ipipip/rtp/239.254.96.181:7072
+安徽卫视,http://ipipip/rtp/239.254.96.133:7064
+重庆卫视,http://ipipip/rtp/239.254.96.60:7464
+天津卫视,http://ipipip/rtp/239.254.96.183:7364
+东南卫视,http://ipipip/rtp/239.254.96.189:8172
+贵州卫视,http://ipipip/rtp/239.254.96.182:7076
+海南卫视,http://ipipip/rtp/239.254.96.179:7154
+江西卫视,http://ipipip/rtp/239.254.96.61:7472
+甘肃卫视,http://ipipip/rtp/239.254.96.177:8220
+新疆卫视,http://ipipip/rtp/239.254.96.162:8220
+西藏卫视,http://ipipip/rtp/239.254.96.163:8220
+宁夏卫视,http://ipipip/rtp/239.254.96.171:8220
+黑龙江卫视,http://ipipip/rtp/239.254.96.86:7672
+吉林卫视,http://ipipip/rtp/239.254.96.65:7504
+辽宁卫视,http://ipipip/rtp/239.254.96.132:7056
+兵团卫视,http://ipipip/rtp/239.254.96.161:8220
+三沙卫视,http://ipipip/rtp/239.254.96.184:7158
+
+4K专区,#genre#
+北京卫视4K,http://ipipip/rtp/239.254.96.158:8220
+广东卫视4K,http://ipipip/rtp/239.254.96.159:8220
+深圳卫视4K,http://ipipip/rtp/239.254.96.160:8220
+爱上4K,http://ipipip/rtp/239.254.96.193:8182
+
+
+体育频道,#genre#
+CCTV-5 体育,http://ipipip/rtp/239.254.96.66:7512
+CCTV-5+ 体育赛事,http://ipipip/rtp/239.254.96.83:7004
+CCTV-16 奥林匹克,http://ipipip/rtp/239.254.96.170:8206
+睛彩青少,http://ipipip/rtp/239.254.96.174:8220
+睛彩竞技,http://ipipip/rtp/239.254.96.172:8220
+睛彩篮球,http://ipipip/rtp/239.254.96.173:8220
+睛彩广场舞,http://ipipip/rtp/239.254.96.175:8220
+
+
+数字频道,#genre#
+IPTV戏曲,http://ipipip/rtp/239.254.96.78:7608
+IPTV电影,http://ipipip/rtp/239.254.96.149:8110
+IPTV电视剧,http://ipipip/rtp/239.254.96.76:7592
+IPTV科教,http://ipipip/rtp/239.254.96.80:7624
+IPTV社会与法,http://ipipip/rtp/239.254.96.81:7632
+IPTV音乐,http://ipipip/rtp/239.254.96.138:8082
+华数谍战剧场,http://ipipip/rtp/239.254.96.77:7600
+IPTV经典电影,http://ipipip/rtp/239.254.96.75:7584
+IPTV喜剧影院,http://ipipip/rtp/239.254.96.147:8106
+华数动作影院,http://ipipip/rtp/239.254.96.148:8108
+IPTV武侠剧场,http://ipipip/rtp/239.254.96.92:8706
 
