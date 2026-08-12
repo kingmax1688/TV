@@ -1,1 +1,62 @@
+央视频道,#genre#
+CCTV-16 奥林匹克,http://ipipip/udp/239.125.2.218:4120
+CCTV-4K 超高清,http://ipipip/udp/239.125.1.214:4120
+CCTV-4 欧洲,http://ipipip/udp/239.125.2.196:4120
+CCTV-4 美洲,http://ipipip/udp/239.125.2.197:4120
+CETV1,http://ipipip/udp/239.125.1.139:4130
+CETV2,http://ipipip/udp/239.125.1.29:5000
+CETV4,http://ipipip/udp/239.125.1.110:4120
+CGTN记录,http://ipipip/udp/239.125.2.198:4120
+CGTN俄语,http://ipipip/udp/239.125.2.203:4120
+
+卫视频道,#genre#
+甘肃卫视,http://ipipip/udp/239.125.2.190:4120
+内蒙古卫视,http://ipipip/udp/239.125.1.59:5000
+宁夏卫视,http://ipipip/udp/239.125.1.157:4130
+青海卫视,http://ipipip/udp/239.125.1.150:4130
+兵团卫视,http://ipipip/udp/239.125.1.135:4130
+三沙卫视,http://ipipip/udp/239.125.1.180:4130
+
+4K专区,#genre#
+北京卫视4K,http://ipipip/udp/239.125.2.105:4120
+东方卫视4K,http://ipipip/udp/239.125.1.235:4120
+广东卫视4K,http://ipipip/udp/239.125.1.224:4120
+深圳卫视4K,http://ipipip/udp/239.125.1.223:4120
+浙江卫视4K,http://ipipip/udp/239.125.1.234:4120
+江苏卫视4K,http://ipipip/udp/239.125.1.233:4120
+湖南卫视4K,http://ipipip/udp/239.125.1.232:4120
+山东卫视4K,http://ipipip/udp/239.125.1.237:4120
+四川卫视4K,http://ipipip/udp/239.125.1.236:4120
+爱上4K,http://ipipip/udp/239.125.1.24:5000
+
+体育频道,#genre#
+游戏风云,http://ipipip/udp/239.125.1.33:5000
+
+
+数字频道,#genre#
+
+IPTV戏曲,http://ipipip/udp/239.125.1.30:5000
+IPTV科教,http://ipipip/udp/234.1.3.126:5000
+IPTV社会与法,http://ipipip/udp/239.125.1.56:5000
+IPTV音乐,http://ipipip/udp/239.125.1.40:5000
+华数热播剧场,http://ipipip/udp/239.125.1.125:4130
+华数谍战剧场,http://ipipip/udp/239.125.1.130:4130
+IPTV经典电影,http://ipipip/udp/239.125.1.28:5000
+IPTV喜剧影院,http://ipipip/udp/239.125.1.52:5000
+华数动作影院,http://ipipip/udp/239.125.1.53:5000
+华数家庭影院,http://ipipip/udp/239.125.1.54:5000
+IPTV武侠剧场,http://ipipip/udp/239.125.1.145:4130
+华数精选,http://ipipip/udp/239.125.1.43:5000
+华数星影,http://ipipip/udp/239.125.1.55:5000
+华数光影,http://ipipip/udp/239.125.1.49:5000
+都市剧场,http://ipipip/udp/239.125.1.129:4130
+金鹰纪实,http://ipipip/udp/239.125.2.106:4134
+
+少儿频道,#genre#
+华数少儿动画,http://ipipip/udp/239.125.1.121:4130
+卡酷少儿,http://ipipip/udp/239.125.1.127:4130
+嘉佳卡通,http://ipipip/udp/239.125.2.213:4120    
+动漫秀场,http://ipipip/udp/239.125.1.31:5000
+金鹰卡通,http://ipipip/udp/239.125.1.128:4130
+
 
