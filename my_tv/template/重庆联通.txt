@@ -1,1 +1,98 @@
+央视频道,#genre#
+CCTV-1 综合,http://ipipip/udp/225.0.4.74:7980
+CCTV-2 财经,http://ipipip/udp/225.0.4.132:7980
+CCTV-3 综艺,http://ipipip/udp/225.0.4.142:7980
+CCTV-4 中文国际,http://ipipip/udp/225.0.4.176:7980
+CCTV-5 体育,http://ipipip/udp/225.0.4.143:7980
+CCTV-5+ 体育赛事,http://ipipip/udp/225.0.4.73:7980
+CCTV-6 电影,http://ipipip/udp/225.0.4.144:7980
+CCTV-7 国防军事,http://ipipip/udp/225.0.4.127:7980
+CCTV-8 电视剧,http://ipipip/udp/225.0.4.137:7980
+CCTV-9 纪录,http://ipipip/udp/225.0.4.131:7980
+CCTV-10 科教,http://ipipip/udp/225.0.4.130:7980
+CCTV-11 戏曲,http://ipipip/udp/225.0.4.218:7980
+CCTV-12 社会与法,http://ipipip/udp/225.0.4.129:7980
+CCTV-13 新闻,http://ipipip/udp/225.0.4.219:7980
+CCTV-14 少儿,http://ipipip/udp/225.0.4.128:7980
+CCTV-15 音乐,http://ipipip/udp/225.0.4.220:7980
+CCTV-17 农业农村,http://ipipip/udp/225.0.4.179:7980
+中央新影-中学生,http://ipipip/udp/225.0.4.184:7980
+CETV1,http://ipipip/udp/225.0.4.186:7980
+CETV4,http://ipipip/udp/225.0.4.182:7980
+中国交通,http://ipipip/udp/225.0.4.125:7980
+
+卫视频道,#genre#
+北京卫视,http://ipipip/udp/225.0.4.78:7980
+东方卫视,http://ipipip/udp/225.0.4.80:7980
+广东卫视,http://ipipip/udp/225.0.4.84:7980
+深圳卫视,http://ipipip/udp/225.0.4.202:7980
+浙江卫视,http://ipipip/udp/225.0.4.81:7980
+江苏卫视,http://ipipip/udp/225.0.4.79:7980
+湖南卫视,http://ipipip/udp/225.0.4.75:7980
+山东卫视,http://ipipip/udp/225.0.4.199:7980
+四川卫视,http://ipipip/udp/225.0.4.204:7980
+湖北卫视,http://ipipip/udp/225.0.4.217:7980
+河北卫视,http://ipipip/udp/225.0.4.174:7980
+安徽卫视,http://ipipip/udp/225.0.4.133:7980
+重庆卫视,http://ipipip/udp/225.0.4.187:7980
+天津卫视,http://ipipip/udp/225.0.4.82:7980
+东南卫视,http://ipipip/udp/225.0.4.200:7980
+贵州卫视,http://ipipip/udp/225.0.4.175:7980
+江西卫视,http://ipipip/udp/225.0.4.203:7980
+甘肃卫视,http://ipipip/udp/225.0.4.181:7980
+新疆卫视,http://ipipip/udp/225.0.4.60:7980
+西藏卫视,http://ipipip/udp/225.0.4.67:7980
+黑龙江卫视,http://ipipip/udp/225.0.4.201:7980
+辽宁卫视,http://ipipip/udp/225.0.4.98:7980
+兵团卫视,http://ipipip/udp/225.0.4.72:7980
+
+4K专区,#genre#
+北京卫视4,http://ipipip/udp/K225.0.4.122:7980
+东方卫视4K,http://ipipip/udp/225.0.4.103:7980
+广东卫视4K,http://ipipip/udp/225.0.4.102:7980
+深圳卫视4K,http://ipipip/udp/225.0.4.101:7980
+浙江卫视4K,http://ipipip/udp/225.0.4.105:7980
+江苏卫视4K,http://ipipip/udp/225.0.4.104:7980
+湖南卫视4K,http://ipipip/udp/225.0.4.107:7980
+山东卫视4K,http://ipipip/udp/225.0.4.106:7980
+四川卫视4K,http://ipipip/udp/225.0.4.108:7980
+爱上4K,http://ipipip/udp/225.0.4.226:7980
+
+体育频道,#genre#
+CCTV-5 体育,http://ipipip/udp/225.0.4.143:7980
+CCTV-5+ 体育赛事,http://ipipip/udp/225.0.4.73:7980
+快乐垂钓,http://ipipip/udp/225.0.4.213:7980
+游戏风云,http://ipipip/udp/225.0.4.237:7980
+
+数字频道,#genre#
+CHC动作电影,http://ipipip/udp/225.0.4.229:7980
+CHC家庭影院,http://ipipip/udp/225.0.4.228:7980
+CHC影迷电影,http://ipipip/udp/225.0.4.230:7980
+IPTV戏曲,http://ipipip/udp/225.0.4.56:7980
+IPTV国防军事,http://ipipip/udp/225.0.4.154:7980
+IPTV科教,http://ipipip/udp/225.0.4.57:7980
+IPTV音乐,http://ipipip/udp/225.0.4.148:7980
+华数热播剧场,http://ipipip/udp/225.0.4.47:7980
+IPTV经典电影,http://ipipip/udp/225.0.4.48:7980
+IPTV喜剧影院,http://ipipip/udp/225.0.4.169:7980
+华数动作影院,http://ipipip/udp/225.0.4.170:7980
+华数家庭影院,http://ipipip/udp/225.0.4.171:7980
+IPTV武侠剧场,http://ipipip/udp/225.0.4.168:7980
+华数精选,http://ipipip/udp/225.0.4.152:7980
+华数星影,http://ipipip/udp/225.0.4.172:7980
+华数光影,http://ipipip/udp/225.0.4.162:7980
+精彩影视,http://ipipip/udp/225.0.4.231:7980
+求索纪录,http://ipipip/udp/225.0.4.232:7980
+生活时尚,http://ipipip/udp/225.0.4.241:7980
+都市剧场,http://ipipip/udp/225.0.4.235:7980
+法治天地,http://ipipip/udp/225.0.4.240:7980
+
+少儿频道,#genre#
+CCTV-14 少儿,http://ipipip/udp/225.0.4.128:7980
+华数少儿动画,http://ipipip/udp/225.0.4.158:7980
+动漫秀场,http://ipipip/udp/225.0.4.236:7980
+优优宝贝,http://ipipip/udp/225.0.4.126:7980
+重庆少儿,http://ipipip/udp/225.0.4.191:7980
+
+
 
