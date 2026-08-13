@@ -8,6 +8,10 @@ CETV2,http://ipipip/udp/239.125.1.29:5000
 CETV4,http://ipipip/udp/239.125.1.110:4120
 CGTN记录,http://ipipip/udp/239.125.2.198:4120
 CGTN俄语,http://ipipip/udp/239.125.2.203:4120
+CGTN法语,http://ipipip/udp/239.125.2.201:4120
+CGTN英语,http://ipipip/udp/239.125.2.199:4120
+CGTN阿拉伯语,http://ipipip/udp/239.125.2.201:4120
+CGTN西班牙语,http://ipipip/udp/239.125.2.200:4120
 
 卫视频道,#genre#
 甘肃卫视,http://ipipip/udp/239.125.2.190:4120
