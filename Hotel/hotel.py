@@ -665,66 +665,38 @@ def exact_channel_match(channel_name, pattern_name):
 
 # 统一频道名称 - 使用精确匹配
 def unify_channel_name(channels_list):
+    # 构建别名列表（别名, 标准名），按别名长度降序排序
+    alias_list = []
+    for std_name, aliases in CHANNEL_MAPPING.items():
+        for alias in aliases:
+            alias_list.append((alias, std_name))
+    alias_list.sort(key=lambda x: len(x[0]), reverse=True)
+
     new_channels_list = []
-    
     for name, channel_url, speed in channels_list:
         original_name = name
         unified_name = None
-        
-        # 清理原始名称
-        clean_name = remove_special_symbols(name.strip().lower())
-        
-        # 首先尝试精确的数字匹配
-        cctv_match = re.search(r'^cctv[-_\s]?(\d+[a-z]?)$', clean_name, re.IGNORECASE)
-        if cctv_match:
-            cctv_num = cctv_match.group(1)
-            
-            # 构建标准的CCTV名称
-            if cctv_num == "5+":
-                standard_name = "CCTV5+"
-            else:
-                standard_name = f"CCTV{cctv_num}"
-            
-            # 在映射表中查找标准名称
-            if standard_name in CHANNEL_MAPPING:
-                unified_name = standard_name
-                print(f"数字匹配: '{original_name}' -> '{standard_name}'")
-        
-        # 如果没有通过数字匹配,再尝试映射表匹配
+
+        # 1. 精确匹配
+        for alias, std in alias_list:
+            if name == alias:
+                unified_name = std
+                break
+
+        # 2. 包含匹配（优先长别名，因为已排序）
         if not unified_name:
-            for standard_name, variants in CHANNEL_MAPPING.items():
-                for variant in variants:
-                    if exact_channel_match(name, variant):
-                        unified_name = standard_name
-                        break
-                if unified_name:
+            for alias, std in alias_list:
+                if alias in name:
+                    unified_name = std
                     break
-        
-        # 如果还没有找到,尝试其他匹配策略
+
         if not unified_name:
-            # 处理特殊格式的CCTV频道
-            for pattern in [r'cctv[-\s]?(\d+)高清?', r'cctv[-\s]?(\d+)hd', r'cctv[-\s]?(\d+).*']:
-                match = re.search(pattern, clean_name, re.IGNORECASE)
-                if match:
-                    cctv_num = match.group(1)
-                    if cctv_num == "5+":
-                        standard_name = "CCTV5+"
-                    else:
-                        standard_name = f"CCTV{cctv_num}"
-                    
-                    if standard_name in CHANNEL_MAPPING:
-                        unified_name = standard_name
-                        print(f"正则匹配: '{original_name}' -> '{standard_name}'")
-                        break
-        
-        # 如果还是没有找到,保留原名称
-        if not unified_name:
-            unified_name = original_name
-        
+            unified_name = name
+
         new_channels_list.append(f"{unified_name},{channel_url},{speed}\n")
         if original_name != unified_name:
             print(f"频道名称统一: '{original_name}' -> '{unified_name}'")
-    
+
     return new_channels_list
 
 # 按照CHANNEL_CATEGORIES中指定的顺序排序
