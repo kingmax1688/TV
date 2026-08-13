@@ -41,8 +41,6 @@ CHC动作电影,http://ipipip//CHC/CHC动作电影HD?cors
 CHC家庭影院,http://ipipip/CHC/CHC家庭影院HD?cors
 CHC影迷电影,http://ipipip/CHC/CHC影迷电影HD?cors
 乐游,http://ipipip/地方/乐游HD?cors
-
-乐游地方/乐游HD?cors
 生活时尚,http://ipipip/地方/生活时尚HD?cors
 都市剧场,http://ipipip/地方/都市剧场HD?cors
 金鹰纪实,http://ipipip/地方/金鹰纪实HD?cors
