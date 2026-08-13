@@ -1,4 +1,4 @@
-2026/08/14 00:50更新,#genre#
+2026/08/14 07:52更新,#genre#
 浙江卫视,http://ali-m-l.cztv.com/channels/lantian/channel001/1080p.m3u8
 央视频道,#genre#
 CCTV-4 中文国际,http://175.152.156.44:2715/rtp/239.0.0.184:5140
@@ -64,7 +64,7 @@ CGTN俄语,http://120.6.7.29:/CGTN 俄语?cors
 网络棋牌,http://120.6.7.29:/网络棋牌?cors
 数字频道,#genre#
 CHC动作电影,http://42.239.113.92:8800/rtp/225.1.4.208:1261
-CHC家庭影院,http://124.67.68.139:4022/udp/239.125.1.54:5000
+CHC家庭影院,http://www.pve.onetopcloud.com:16666/udp/239.125.1.54:5000
 CHC影迷电影,http://42.239.113.92:8800/rtp/225.1.4.207:1260
 淘电影,http://shunyi-home.wangbin.us:/rtp/239.3.1.250:8001
 淘精彩,http://shunyi-home.wangbin.us:/rtp/239.3.1.178:8001
@@ -77,15 +77,15 @@ IPTV电视剧,http://www.alihomes.top:8188/rtp/239.254.96.76:7592
 IPTV科教,http://www.alihomes.top:8188/rtp/239.254.96.80:7624
 IPTV社会与法,http://175.152.156.44:2715/rtp/239.0.0.33:5140
 IPTV音乐,http://www.alihomes.top:8188/rtp/239.254.96.138:8082
-华数热播剧场,http://124.67.68.139:4022/udp/239.125.1.125:4130
+华数热播剧场,http://www.pve.onetopcloud.com:16666/udp/239.125.1.125:4130
 华数谍战剧场,http://www.alihomes.top:8188/rtp/239.254.96.77:7600
 IPTV经典电影,http://www.alihomes.top:8188/rtp/239.254.96.75:7584
 IPTV喜剧影院,http://www.alihomes.top:8188/rtp/239.254.96.147:8106
 华数动作影院,http://www.alihomes.top:8188/rtp/239.254.96.148:8108
 IPTV武侠剧场,http://www.alihomes.top:8188/rtp/239.254.96.92:8706
-华数精选,http://124.67.68.139:4022/udp/239.125.1.43:5000
-华数星影,http://124.67.68.139:4022/udp/239.125.1.55:5000
-华数光影,http://124.67.68.139:4022/udp/239.125.1.49:5000
+华数精选,http://www.pve.onetopcloud.com:16666/udp/239.125.1.43:5000
+华数星影,http://www.pve.onetopcloud.com:16666/udp/239.125.1.55:5000
+华数光影,http://www.pve.onetopcloud.com:16666/udp/239.125.1.49:5000
 精彩影视,http://home.660888.xyz:4000/udp/225.0.4.231:7980
 书画频道,http://175.152.156.44:2715/rtp/239.0.0.31:5140
 环球奇观,http://120.6.7.29:/环球奇观?cors
@@ -98,9 +98,9 @@ EETV生态环境,http://120.6.7.29:/生态环境?cors
 少儿频道,#genre#
 淘BABY,http://shunyi-home.wangbin.us:/rtp/239.3.1.238:8001
 淘萌宠,http://shunyi-home.wangbin.us:/rtp/239.3.1.102:800
-华数少儿动画,http://124.67.68.139:4022/udp/239.125.1.121:4130
+华数少儿动画,http://www.pve.onetopcloud.com:16666/udp/239.125.1.121:4130
 卡酷少儿,http://175.152.156.44:2715/rtp/239.0.0.75:5140
-嘉佳卡通,http://124.67.68.139:4022/udp/239.125.2.213:4120
+嘉佳卡通,http://www.pve.onetopcloud.com:16666/udp/239.125.2.213:4120
 金色学堂,http://175.152.156.44:2715/rtp/239.0.0.32:5140
 动漫秀场,http://175.152.156.44:2715/rtp/239.0.0.28:5140
 哈哈炫动,http://139.227.20.18:19999/地方/哈哈炫动HD?cors
@@ -111,10 +111,10 @@ EETV生态环境,http://120.6.7.29:/生态环境?cors
 其它频道,#genre#
 CETV,http://shunyi-home.wangbin.us:/rtp/3239.3.1.55:4120
 CGTN新闻,http://shunyi-home.wangbin.us:/rtp/239.3.1.215:4220
-CGTN法语,http://124.67.68.139:4022/udp/239.125.2.201:4120
-CGTN西班牙语,http://124.67.68.139:4022/udp/239.125.2.200:4120
-CGTN记录,http://124.67.68.139:4022/udp/239.125.2.198:4120
-CGTN阿拉伯语,http://124.67.68.139:4022/udp/239.125.2.201:4120
+CGTN法语,http://www.pve.onetopcloud.com:16666/udp/239.125.2.201:4120
+CGTN西班牙语,http://www.pve.onetopcloud.com:16666/udp/239.125.2.200:4120
+CGTN记录,http://www.pve.onetopcloud.com:16666/udp/239.125.2.198:4120
+CGTN阿拉伯语,http://www.pve.onetopcloud.com:16666/udp/239.125.2.201:4120
 东方影视,http://139.227.20.18:19999/地方/东方影视HD?cors
 优优宝贝,http://120.6.7.29:/优优宝贝?cors
 北京体育休闲,http://shunyi-home.wangbin.us:/rtp/239.3.1.243:8000
