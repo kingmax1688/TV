@@ -26,9 +26,6 @@ CITY_STREAMS = {
     "重庆联通": ["udp/225.0.4.74:7980"],
 }
 
-# 远程GitHub仓库的基础URL（已弃用，保留仅为兼容）
-GITHUB_BASE_URL = "https://raw.githubusercontent.com/q1017673817/iptvz/refs/heads/main"
-
 # 设置工作目录
 WORKING_DIR = os.getcwd()
 MY_TV_DIR = os.path.join(WORKING_DIR, "my_tv")
@@ -220,12 +217,102 @@ def test_ip_single(ip_port, test_stream, timeout=8):
         return None, 0
 
 
-# ========== 关键修改：validate_city_ips 不删除IP ==========
+# ==================== 新增函数：删除失效IP ====================
+def delete_invalid_ips(city_name, invalid_ips):
+    """
+    从 ip.txt 和 对应的 template.txt 中删除失效IP
+    """
+    # 1. 从 ip.txt 中删除失效IP
+    ip_file = os.path.join(MY_TV_DIR, "ip", f"{city_name}_ip.txt")
+    if os.path.exists(ip_file):
+        try:
+            with open(ip_file, 'r', encoding='utf-8') as f:
+                lines = f.readlines()
+
+            # 过滤掉失效IP行
+            new_lines = []
+            for line in lines:
+                line_stripped = line.strip()
+                if not line_stripped or line_stripped.startswith('#'):
+                    new_lines.append(line)
+                    continue
+                cleaned_ip = clean_ip_line(line_stripped)
+                if cleaned_ip and ':' in cleaned_ip:
+                    ip_port = cleaned_ip.split(' ')[0] if ' ' in cleaned_ip else cleaned_ip
+                    if ip_port not in invalid_ips:
+                        new_lines.append(line)
+                    else:
+                        print(f"  从 {os.path.basename(ip_file)} 中删除: {ip_port}")
+
+            # 写回文件
+            with open(ip_file, 'w', encoding='utf-8') as f:
+                f.writelines(new_lines)
+            print(f"✓ 已更新 {os.path.basename(ip_file)}")
+
+        except Exception as e:
+            print(f"✗ 更新IP文件失败: {e}")
+
+    # 2. 从对应的 template.txt 中删除包含失效IP的频道行
+    template_file = os.path.join(MY_TV_DIR, "template", f"{city_name}.txt")
+    if os.path.exists(template_file):
+        try:
+            with open(template_file, 'r', encoding='utf-8') as f:
+                lines = f.readlines()
+
+            new_lines = []
+            deleted_count = 0
+            for line in lines:
+                line_stripped = line.strip()
+                # 保留分类行和空行
+                if not line_stripped or ",#genre#" in line_stripped:
+                    new_lines.append(line)
+                    continue
+
+                # 检查频道行是否包含失效IP
+                should_keep = True
+                if ',' in line_stripped:
+                    parts = line_stripped.split(',', 1)
+                    if len(parts) == 2:
+                        url_part = parts[1].strip()
+                        # 检查URL中是否包含失效IP
+                        for invalid_ip in invalid_ips:
+                            if invalid_ip in url_part:
+                                should_keep = False
+                                deleted_count += 1
+                                print(f"  从 {os.path.basename(template_file)} 中删除包含 {invalid_ip} 的频道: {parts[0]}")
+                                break
+
+                if should_keep:
+                    new_lines.append(line)
+
+            # 写回文件
+            with open(template_file, 'w', encoding='utf-8') as f:
+                f.writelines(new_lines)
+            print(f"✓ 已更新 {os.path.basename(template_file)}，删除了 {deleted_count} 个频道")
+
+        except Exception as e:
+            print(f"✗ 更新模板文件失败: {e}")
+
+    # 3. 如果 ip.txt 为空，删除它
+    if os.path.exists(ip_file):
+        try:
+            with open(ip_file, 'r', encoding='utf-8') as f:
+                content = f.read().strip()
+            if not content:
+                os.remove(ip_file)
+                print(f"✓ {os.path.basename(ip_file)} 为空，已删除")
+        except:
+            pass
+# ==================== 新增结束 ====================
+
+
+# ==================== 修改后的验证函数 ====================
 def validate_city_ips(city_name, city_config):
     """
-    验证城市IP（仅从本地 my_tv/ip/{城市名}_ip.txt 读取）
-    - 保留所有IP，不删除任何条目
-    - 如果测速，则记录速度值，但全部保留
+    验证城市IP
+    - 从本地 my_tv/ip/{城市名}_ip.txt 读取所有IP
+    - 测速验证，记录有效IP
+    - 自动从 ip.txt 和 对应的 template.txt 中删除失效IP
     """
     local_ip_file = os.path.join(MY_TV_DIR, "ip", f"{city_name}_ip.txt")
     if not os.path.exists(local_ip_file):
@@ -249,26 +336,46 @@ def validate_city_ips(city_name, city_config):
     print(f"从本地读取到 {len(ip_configs)} 个IP")
 
     test_stream = city_config.get("test_streams", [None])[0]
-    if test_stream:
-        print(f"开始测速，但保留所有IP...")
-        valid_ips = []
-        with ThreadPoolExecutor(max_workers=5) as executor:
-            futures = []
-            for ip_port in ip_configs:
-                future = executor.submit(test_ip_single, ip_port, test_stream)
-                futures.append(future)
-            for future in as_completed(futures):
-                ip_port, speed = future.result()
-                if ip_port:
-                    valid_ips.append((ip_port, speed))
-        # 按速度排序，但保留全部
-        valid_ips.sort(key=lambda x: x[1], reverse=True)
-        # 返回全部IP，即使速度可能为0
-        return valid_ips if valid_ips else [(ip, 0) for ip in ip_configs]
-    else:
-        # 没有测试流，返回所有IP（速度为0）
+    if not test_stream:
+        print(f"✗ {city_name} 没有测试流，无法验证IP")
         return [(ip, 0) for ip in ip_configs]
-# ========== 修改结束 ==========
+
+    print(f"开始测速验证IP...")
+    valid_ips = []
+    invalid_ips = []  # 记录失效IP
+
+    with ThreadPoolExecutor(max_workers=5) as executor:
+        futures = {}
+        for ip_port in ip_configs:
+            future = executor.submit(test_ip_single, ip_port, test_stream)
+            futures[future] = ip_port
+
+        for future in as_completed(futures):
+            ip_port = futures[future]
+            result_ip, speed = future.result()
+            if result_ip and speed > 0:
+                valid_ips.append((result_ip, speed))
+                print(f"✓ {result_ip} 有效 - 速度: {speed:.2f} KB/s")
+            else:
+                invalid_ips.append(ip_port)
+                print(f"✗ {ip_port} 失效，将被删除")
+
+    # ========== 新增：删除失效IP ==========
+    if invalid_ips:
+        print(f"\n发现 {len(invalid_ips)} 个失效IP，正在删除...")
+        delete_invalid_ips(city_name, invalid_ips)
+    else:
+        print(f"\n✓ 所有IP均有效")
+
+    # 按速度排序
+    valid_ips.sort(key=lambda x: x[1], reverse=True)
+
+    if not valid_ips:
+        print(f"⚠️ {city_name} 所有IP均失效，已清空相关文件")
+        return []
+
+    return valid_ips
+# ==================== 修改结束 ====================
 
 
 def read_template_file(city_name):
@@ -607,11 +714,11 @@ def main():
             print(f"✗ 无法获取城市配置: {city_name}")
             continue
         
-        # 步骤1: 读取本地IP列表
-        print(f"步骤1: 读取本地IP列表...")
+        # 步骤1: 读取本地IP列表并验证
+        print(f"步骤1: 验证本地IP...")
         top_ips = validate_city_ips(city_name, city_config)
         if not top_ips:
-            print(f"✗ {city_name} 没有可用的IP，跳过")
+            print(f"✗ {city_name} 没有可用IP，跳过")
             continue
         
         print(f"✓ {city_name} 共有 {len(top_ips)} 个可用IP")
