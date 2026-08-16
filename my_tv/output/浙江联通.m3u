@@ -13,100 +13,26 @@ http://123.157.31.182:7912/rtp/233.50.202.34:5140
 http://123.157.31.182:7912/rtp/233.50.201.134:5140
 #EXTINF:-1 tvg-id="百事通直播" tvg-name="百事通直播" group-title="其它频道",百事通直播
 http://123.157.31.182:7912/rtp/233.50.201.204:5140
-#EXTINF:-1 tvg-id="北京卫视4K" tvg-name="北京卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/北京卫视4K.png" group-title="卫视频道",北京卫视4K
+#EXTINF:-1 tvg-id="北京卫视4K" tvg-name="北京卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/北京卫视4K.png" group-title="4K专区",北京卫视4K
 http://123.157.31.182:7912/rtp/233.50.201.226:5140
-#EXTINF:-1 tvg-id="东方卫视4K" tvg-name="东方卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/东方卫视4K.png" group-title="卫视频道",东方卫视4K
+#EXTINF:-1 tvg-id="东方卫视4K" tvg-name="东方卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/东方卫视4K.png" group-title="4K专区",东方卫视4K
 http://123.157.31.182:7912/rtp/233.50.202.105:5140
-#EXTINF:-1 tvg-id="广东卫视4K" tvg-name="广东卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/广东卫视4K.png" group-title="卫视频道",广东卫视4K
+#EXTINF:-1 tvg-id="广东卫视4K" tvg-name="广东卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/广东卫视4K.png" group-title="4K专区",广东卫视4K
 http://123.157.31.182:7912/rtp/233.50.202.101:5140
-#EXTINF:-1 tvg-id="深圳卫视4K" tvg-name="深圳卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/深圳卫视4K.png" group-title="卫视频道",深圳卫视4K
+#EXTINF:-1 tvg-id="深圳卫视4K" tvg-name="深圳卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/深圳卫视4K.png" group-title="4K专区",深圳卫视4K
 http://123.157.31.182:7912/rtp/233.50.202.102:5140
-#EXTINF:-1 tvg-id="湖南卫视4K" tvg-name="湖南卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/湖南卫视4K.png" group-title="卫视频道",湖南卫视4K
+#EXTINF:-1 tvg-id="湖南卫视4K" tvg-name="湖南卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/湖南卫视4K.png" group-title="4K专区",湖南卫视4K
 http://123.157.31.182:7912/rtp/233.50.202.106:5140
-#EXTINF:-1 tvg-id="山东卫视4K" tvg-name="山东卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/山东卫视4K.png" group-title="卫视频道",山东卫视4K
+#EXTINF:-1 tvg-id="山东卫视4K" tvg-name="山东卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/山东卫视4K.png" group-title="4K专区",山东卫视4K
 http://123.157.31.182:7912/rtp/233.50.202.108:5140
-#EXTINF:-1 tvg-id="四川卫视4K" tvg-name="四川卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/四川卫视4K.png" group-title="卫视频道",四川卫视4K
+#EXTINF:-1 tvg-id="四川卫视4K" tvg-name="四川卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/四川卫视4K.png" group-title="4K专区",四川卫视4K
 http://123.157.31.182:7912/rtp/233.50.202.109:5140
-#EXTINF:-1 tvg-id="浙江卫视4K" tvg-name="浙江卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/浙江卫视4K.png" group-title="卫视频道",浙江卫视4K
+#EXTINF:-1 tvg-id="浙江卫视4K" tvg-name="浙江卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/浙江卫视4K.png" group-title="4K专区",浙江卫视4K
 http://123.157.31.182:7912/rtp/233.50.202.104:5140
-#EXTINF:-1 tvg-id="江苏卫视4K" tvg-name="江苏卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/江苏卫视4K.png" group-title="卫视频道",江苏卫视4K
+#EXTINF:-1 tvg-id="江苏卫视4K" tvg-name="江苏卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/江苏卫视4K.png" group-title="4K专区",江苏卫视4K
 http://123.157.31.182:7912/rtp/233.50.202.107:5140
-#EXTINF:-1 tvg-id="重庆卫视" tvg-name="重庆卫视" tvg-logo="tvg-logo="https://png-1hf.pages.dev/重庆卫视.png" group-title="卫视频道",重庆卫视
-http://123.157.31.182:7912/rtp/233.50.201.143:5140
-#EXTINF:-1 tvg-id="江苏卫视" tvg-name="江苏卫视" tvg-logo="tvg-logo="https://png-1hf.pages.dev/江苏卫视.png" group-title="卫视频道",江苏卫视
-http://123.157.31.182:7912/rtp/233.50.201.106:5140
-#EXTINF:-1 tvg-id="浙江卫视" tvg-name="浙江卫视" tvg-logo="tvg-logo="https://png-1hf.pages.dev/浙江卫视.png" group-title="卫视频道",浙江卫视
-http://123.157.31.182:7912/rtp/233.50.201.100:5140
-#EXTINF:-1 tvg-id="东方卫视" tvg-name="东方卫视" tvg-logo="tvg-logo="https://png-1hf.pages.dev/东方卫视.png" group-title="卫视频道",东方卫视
-http://123.157.31.182:7912/rtp/233.50.201.125:5140
-#EXTINF:-1 tvg-id="深圳卫视" tvg-name="深圳卫视" tvg-logo="tvg-logo="https://png-1hf.pages.dev/深圳卫视.png" group-title="卫视频道",深圳卫视
-http://123.157.31.182:7912/rtp/233.50.201.101:5140
-#EXTINF:-1 tvg-id="北京卫视" tvg-name="北京卫视" tvg-logo="tvg-logo="https://png-1hf.pages.dev/北京卫视.png" group-title="卫视频道",北京卫视
-http://123.157.31.182:7912/rtp/233.50.201.107:5140
-#EXTINF:-1 tvg-id="山东卫视" tvg-name="山东卫视" tvg-logo="tvg-logo="https://png-1hf.pages.dev/山东卫视.png" group-title="卫视频道",山东卫视
-http://123.157.31.182:7912/rtp/233.50.201.105:5140
-#EXTINF:-1 tvg-id="天津卫视" tvg-name="天津卫视" tvg-logo="tvg-logo="https://png-1hf.pages.dev/天津卫视.png" group-title="卫视频道",天津卫视
-http://123.157.31.182:7912/rtp/233.50.201.104:5140
-#EXTINF:-1 tvg-id="贵州卫视" tvg-name="贵州卫视" tvg-logo="tvg-logo="https://png-1hf.pages.dev/贵州卫视.png" group-title="卫视频道",贵州卫视
-http://123.157.31.182:7912/rtp/233.50.201.142:5140
-#EXTINF:-1 tvg-id="四川卫视" tvg-name="四川卫视" tvg-logo="tvg-logo="https://png-1hf.pages.dev/四川卫视.png" group-title="卫视频道",四川卫视
-http://123.157.31.182:7912/rtp/233.50.201.139:5140
-#EXTINF:-1 tvg-id="黑龙江卫视" tvg-name="黑龙江卫视" tvg-logo="tvg-logo="https://png-1hf.pages.dev/黑龙江卫视.png" group-title="卫视频道",黑龙江卫视
-http://123.157.31.182:7912/rtp/233.50.201.115:5140
-#EXTINF:-1 tvg-id="安徽卫视" tvg-name="安徽卫视" tvg-logo="tvg-logo="https://png-1hf.pages.dev/安徽卫视.png" group-title="卫视频道",安徽卫视
-http://123.157.31.182:7912/rtp/233.50.201.113:5140
-#EXTINF:-1 tvg-id="江西卫视" tvg-name="江西卫视" tvg-logo="tvg-logo="https://png-1hf.pages.dev/江西卫视.png" group-title="卫视频道",江西卫视
-http://123.157.31.182:7912/rtp/233.50.201.145:5140
-#EXTINF:-1 tvg-id="湖北卫视" tvg-name="湖北卫视" tvg-logo="tvg-logo="https://png-1hf.pages.dev/湖北卫视.png" group-title="卫视频道",湖北卫视
-http://123.157.31.182:7912/rtp/233.50.201.114:5140
-#EXTINF:-1 tvg-id="东南卫视" tvg-name="东南卫视" tvg-logo="tvg-logo="https://png-1hf.pages.dev/东南卫视.png" group-title="卫视频道",东南卫视
-http://123.157.31.182:7912/rtp/233.50.201.146:5140
-#EXTINF:-1 tvg-id="辽宁卫视" tvg-name="辽宁卫视" tvg-logo="tvg-logo="https://png-1hf.pages.dev/辽宁卫视.png" group-title="卫视频道",辽宁卫视
-http://123.157.31.182:7912/rtp/233.50.201.141:5140
-#EXTINF:-1 tvg-id="湖南卫视" tvg-name="湖南卫视" tvg-logo="tvg-logo="https://png-1hf.pages.dev/湖南卫视.png" group-title="卫视频道",湖南卫视
-http://123.157.31.182:7912/rtp/233.50.201.103:5140
-#EXTINF:-1 tvg-id="广东卫视" tvg-name="广东卫视" tvg-logo="tvg-logo="https://png-1hf.pages.dev/广东卫视.png" group-title="卫视频道",广东卫视
-http://123.157.31.182:7912/rtp/233.50.201.102:5140
-#EXTINF:-1 tvg-id="河南卫视" tvg-name="河南卫视" tvg-logo="tvg-logo="https://png-1hf.pages.dev/河南卫视.png" group-title="卫视频道",河南卫视
-http://123.157.31.182:7912/rtp/233.50.201.144:5140
-#EXTINF:-1 tvg-id="河北卫视" tvg-name="河北卫视" tvg-logo="tvg-logo="https://png-1hf.pages.dev/河北卫视.png" group-title="卫视频道",河北卫视
-http://123.157.31.182:7912/rtp/233.50.201.140:5140
-#EXTINF:-1 tvg-id="宁夏卫视" tvg-name="宁夏卫视" tvg-logo="tvg-logo="https://png-1hf.pages.dev/宁夏卫视.png" group-title="卫视频道",宁夏卫视
-http://123.157.31.182:7912/rtp/233.50.202.45:5140
-#EXTINF:-1 tvg-id="新疆卫视" tvg-name="新疆卫视" tvg-logo="tvg-logo="https://png-1hf.pages.dev/新疆卫视.png" group-title="卫视频道",新疆卫视
-http://123.157.31.182:7912/rtp/233.50.202.46:5140
-#EXTINF:-1 tvg-id="西藏卫视" tvg-name="西藏卫视" tvg-logo="tvg-logo="https://png-1hf.pages.dev/西藏卫视.png" group-title="卫视频道",西藏卫视
-http://123.157.31.182:7912/rtp/233.50.202.43:5140
-#EXTINF:-1 tvg-id="兵团卫视" tvg-name="兵团卫视" tvg-logo="tvg-logo="https://png-1hf.pages.dev/兵团卫视.png" group-title="卫视频道",兵团卫视
-http://123.157.31.182:7912/rtp/233.50.202.44:5140
-#EXTINF:-1 tvg-id="CCTV1" tvg-name="CCTV1" group-title="央视频道",CCTV1
-http://123.157.31.182:7912/rtp/233.50.201.118:5140
-#EXTINF:-1 tvg-id="CCTV2" tvg-name="CCTV2" group-title="央视频道",CCTV2
-http://123.157.31.182:7912/rtp/233.50.201.119:5140
-#EXTINF:-1 tvg-id="CCTV3" tvg-name="CCTV3" group-title="央视频道",CCTV3
-http://123.157.31.182:7912/rtp/233.50.201.196:5140
-#EXTINF:-1 tvg-id="CCTV5" tvg-name="CCTV5" group-title="央视频道",CCTV5
-http://123.157.31.182:7912/rtp/233.50.201.195:5140
-#EXTINF:-1 tvg-id="CCTV5+" tvg-name="CCTV5+" group-title="央视频道",CCTV5+
-http://123.157.31.182:7912/rtp/233.50.201.220:5140
-#EXTINF:-1 tvg-id="CCTV6" tvg-name="CCTV6" group-title="央视频道",CCTV6
-http://123.157.31.182:7912/rtp/233.50.201.198:5140
-#EXTINF:-1 tvg-id="CCTV7" tvg-name="CCTV7" group-title="央视频道",CCTV7
-http://123.157.31.182:7912/rtp/233.50.201.120:5140
-#EXTINF:-1 tvg-id="CCTV8" tvg-name="CCTV8" group-title="央视频道",CCTV8
-http://123.157.31.182:7912/rtp/233.50.201.199:5140
-#EXTINF:-1 tvg-id="CCTV9" tvg-name="CCTV9" group-title="央视频道",CCTV9
-http://123.157.31.182:7912/rtp/233.50.201.121:5140
-#EXTINF:-1 tvg-id="CCTV10" tvg-name="CCTV10" group-title="央视频道",CCTV10
-http://123.157.31.182:7912/rtp/233.50.201.122:5140
-#EXTINF:-1 tvg-id="CCTV12" tvg-name="CCTV12" group-title="央视频道",CCTV12
-http://123.157.31.182:7912/rtp/233.50.201.123:5140
-#EXTINF:-1 tvg-id="CCTV13" tvg-name="CCTV13" group-title="央视频道",CCTV13
-http://123.157.31.182:7912/rtp/233.50.201.246:5140
-#EXTINF:-1 tvg-id="CCTV14" tvg-name="CCTV14" group-title="央视频道",CCTV14
-http://123.157.31.182:7912/rtp/233.50.201.124:5140
-#EXTINF:-1 tvg-id="CCTV16" tvg-name="CCTV16" group-title="央视频道",CCTV16
-http://123.157.31.182:7912/rtp/233.50.201.192:5140
+#EXTINF:-1 tvg-id="欢笑剧场" tvg-name="欢笑剧场" group-title="4K专区",欢笑剧场
+http://123.157.31.182:7912/rtp/233.50.201.189:5140
 #EXTINF:-1 tvg-id="游戏风云" tvg-name="游戏风云" tvg-logo="tvg-logo="https://png-1hf.pages.dev/游戏风云.png" group-title="体育频道",游戏风云
 http://123.157.31.182:7912/rtp/233.50.201.183:5140
 #EXTINF:-1 tvg-id="快乐垂钓" tvg-name="快乐垂钓" group-title="体育频道",快乐垂钓
@@ -133,9 +59,15 @@ http://123.157.31.182:7912/rtp/233.50.201.185:5140
 http://123.157.31.182:7912/rtp/233.50.201.190:5140
 #EXTINF:-1 tvg-id="法制天地" tvg-name="法制天地" group-title="数字频道",法制天地
 http://123.157.31.182:7912/rtp/233.50.201.191:5140
+#EXTINF:-1 tvg-id="宁夏卫视" tvg-name="宁夏卫视" tvg-logo="tvg-logo="https://png-1hf.pages.dev/宁夏卫视.png" group-title="卫视频道",宁夏卫视
+http://123.157.31.182:7912/rtp/233.50.202.45:5140
+#EXTINF:-1 tvg-id="新疆卫视" tvg-name="新疆卫视" tvg-logo="tvg-logo="https://png-1hf.pages.dev/新疆卫视.png" group-title="卫视频道",新疆卫视
+http://123.157.31.182:7912/rtp/233.50.202.46:5140
+#EXTINF:-1 tvg-id="西藏卫视" tvg-name="西藏卫视" tvg-logo="tvg-logo="https://png-1hf.pages.dev/西藏卫视.png" group-title="卫视频道",西藏卫视
+http://123.157.31.182:7912/rtp/233.50.202.43:5140
+#EXTINF:-1 tvg-id="兵团卫视" tvg-name="兵团卫视" tvg-logo="tvg-logo="https://png-1hf.pages.dev/兵团卫视.png" group-title="卫视频道",兵团卫视
+http://123.157.31.182:7912/rtp/233.50.202.44:5140
 #EXTINF:-1 tvg-id="凤凰中文" tvg-name="凤凰中文" tvg-logo="tvg-logo="https://png-1hf.pages.dev/凤凰中文台.png" group-title="港澳台频道",凤凰中文
 http://123.157.31.182:7912/rtp/233.50.202.35:5140
 #EXTINF:-1 tvg-id="凤凰资讯" tvg-name="凤凰资讯" tvg-logo="tvg-logo="https://png-1hf.pages.dev/凤凰资讯台.png" group-title="港澳台频道",凤凰资讯
 http://123.157.31.182:7912/rtp/233.50.202.36:5140
-#EXTINF:-1 tvg-id="欢笑剧场" tvg-name="欢笑剧场" group-title="4K专区",欢笑剧场
-http://123.157.31.182:7912/rtp/233.50.201.189:5140
