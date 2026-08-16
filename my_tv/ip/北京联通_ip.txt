@@ -4,6 +4,3 @@ bjyq-vnc-dns.mfsz.com.cn:8888
 vpn.famcloud.top:9878
 221.219.148.78:8888
 114.252.228.26:4022
-shunyi-home.wangbin.us:4022 419.47 KB/s
-triq.cc:8012 329.64 KB/s
-221.219.79.220:8888
