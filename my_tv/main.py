@@ -642,7 +642,6 @@ def merge_all_files(channel_template, max_sources_per_channel=10):
     simple_txt_file = os.path.join(MY_TV_DIR, "zubo_simple.txt")
     with open(simple_txt_file, "w", encoding="utf-8") as f:
         f.write(f"{current_time}更新,#genre#\n")
-        f.write(f"浙江卫视,http://ali-m-l.cztv.com/channels/lantian/channel001/1080p.m3u8\n")
         for category in channel_template.keys():
             if category in organized_channels and organized_channels[category]:
                 f.write(f"{category},#genre#\n")
