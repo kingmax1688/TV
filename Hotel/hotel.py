@@ -1061,7 +1061,6 @@ def main():
     
     with open("1.txt", "w", encoding="utf-8") as f:
         f.write(f"{current_time}更新,#genre#\n")
-        f.write(f"浙江卫视,http://ali-m-l.cztv.com/channels/lantian/channel001/1080p.m3u8\n")
         for content in file_contents:
             f.write(f"\n{content}")
     
