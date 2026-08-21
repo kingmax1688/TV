@@ -3,4 +3,3 @@ bjyq-vnc-dns.mfsz.com.cn:8888
 triq.cc:8012
 123.120.49.149:4022
 vpn.famcloud.top:9878
-221.219.148.78:8888
