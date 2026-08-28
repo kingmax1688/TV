@@ -1,3 +1,2 @@
-bjyq-vnc-dns.mfsz.com.cn:8888
 123.120.49.149:4022
 vpn.famcloud.top:9878
