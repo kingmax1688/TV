@@ -1,4 +1,4 @@
-2026/08/28 14:51更新,#genre#
+2026/08/29 05:21更新,#genre#
 浙江卫视,http://ali-m-l.cztv.com/channels/lantian/channel001/1080p.m3u8
 央视频道,#genre#
 CCTV-4K 超高清,http://www.alihomes.top:8188/rtp/239.254.96.56:7432$海南联通
