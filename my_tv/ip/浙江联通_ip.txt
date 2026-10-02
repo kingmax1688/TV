@@ -1,3 +1,4 @@
 jellyfin.eversouthhangzhou.com.cn:8188
 z2m.eversouthhangzhou.com.cn:8188
 bgs.cchui.fun:7912
+123.157.31.182:7912
