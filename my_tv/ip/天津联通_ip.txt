@@ -1,1 +1,2 @@
 home.techua.net:8000
+ak.cj022.com:10080
