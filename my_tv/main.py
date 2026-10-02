@@ -27,6 +27,12 @@ CITY_STREAMS = {
     "河南联通": ["rtp/225.1.4.16:1045"],
 }
 
+# ==================== ★ 新增：速度/质量评分配置 ====================
+SPEED_FULL_MARK_KB = 2000   # 达到该速度（KB/s）即速度满分
+SPEED_WEIGHT = 0.4          # 速度权重
+QUALITY_WEIGHT = 0.6        # 质量权重
+# ========================================================
+
 # 设置工作目录
 WORKING_DIR = os.getcwd()
 MY_TV_DIR = os.path.join(WORKING_DIR, "my_tv")
@@ -51,6 +57,51 @@ def get_headers():
         'Connection': 'keep-alive',
         'Range': 'bytes=0-',
     }
+
+
+# ==================== ★ 新增：组播源质量分解析 ====================
+def parse_multicast_quality(url, channel_name=""):
+    """
+    从 URL 和频道名中解析组播源的画质分（0-100）。
+    组播源画质由源本身的模板决定，无法像 m3u8 一样从响应内容解析，
+    因此主要依据 URL 路径和频道名里的分辨率关键词来判断。
+    """
+    text = (url + " " + channel_name).lower()
+
+    # 4K / UHD
+    if any(k in text for k in ['4k', 'uhd', '3840', '2160']):
+        return 100.0
+    # 1080p / FHD
+    if any(k in text for k in ['1080', 'fhd']):
+        return 85.0
+    # 720p / HD
+    if any(k in text for k in ['720']):
+        return 65.0
+    # 576 / SD
+    if any(k in text for k in ['576', 'sd']):
+        return 40.0
+    # 无信息，给中性分
+    return 55.0
+
+
+def calc_combined_score(speed_kbs, url, channel_name):
+    """
+    计算组播源的综合分。
+    - speed_kbs: 速度（KB/s）
+    - url: 频道 URL
+    - channel_name: 频道名
+    返回：综合分（0-100）
+    """
+    # 速度分
+    if speed_kbs and speed_kbs > 0:
+        speed_score = min(100.0, speed_kbs / SPEED_FULL_MARK_KB * 100)
+    else:
+        speed_score = 0.0
+    # 质量分
+    quality_score = parse_multicast_quality(url, channel_name)
+    # 综合分
+    return speed_score * SPEED_WEIGHT + quality_score * QUALITY_WEIGHT
+# ==================== ★ 新增结束 ====================
 
 
 def clean_ip_line(ip_line):
@@ -218,7 +269,7 @@ def test_ip_single(ip_port, test_stream, timeout=8):
         return None, 0
 
 
-# ==================== 新增函数：删除失效IP ====================
+# ==================== 删除失效IP ====================
 def delete_invalid_ips(city_name, invalid_ips):
     """
     从 ip.txt 和 对应的 template.txt 中删除失效IP
@@ -304,10 +355,10 @@ def delete_invalid_ips(city_name, invalid_ips):
                 print(f"✓ {os.path.basename(ip_file)} 为空，已删除")
         except:
             pass
-# ==================== 新增结束 ====================
+# ==================== 删除失效IP结束 ====================
 
 
-# ==================== 修改后的验证函数 ====================
+# ==================== 验证函数 ====================
 def validate_city_ips(city_name, city_config):
     """
     验证城市IP
@@ -361,7 +412,7 @@ def validate_city_ips(city_name, city_config):
                 invalid_ips.append(ip_port)
                 print(f"✗ {ip_port} 失效，将被删除")
 
-    # ========== 新增：删除失效IP ==========
+    # 删除失效IP
     if invalid_ips:
         print(f"\n发现 {len(invalid_ips)} 个失效IP，正在删除...")
         delete_invalid_ips(city_name, invalid_ips)
@@ -376,7 +427,7 @@ def validate_city_ips(city_name, city_config):
         return []
 
     return valid_ips
-# ==================== 修改结束 ====================
+# ==================== 验证函数结束 ====================
 
 
 def read_template_file(city_name):
@@ -573,20 +624,38 @@ def merge_all_files(channel_template, max_sources_per_channel=10):
     organized_channels["其它频道"] = {}
     
     for main_channel_name, sources in all_channels_with_sources.items():
-        sources.sort(key=lambda x: x[0], reverse=True)
-        limited_sources = sources[:max_sources_per_channel]
+        # ★ 修改：按"速度 + 质量"综合分排序
+        scored_sources = []
+        for speed, channel_name, url, city, ip_port in sources:
+            quality = parse_multicast_quality(url, channel_name)
+            combined = calc_combined_score(speed, url, channel_name)
+            scored_sources.append((combined, speed, channel_name, url, city, ip_port))
+
+        # 按综合分降序排列
+        scored_sources.sort(key=lambda x: x[0], reverse=True)
+
+        # 截取前 N 条
+        limited_sources = scored_sources[:max_sources_per_channel]
+
+        # 打印排序结果（前 3 条）
+        print(f"  📺 {main_channel_name}: 共 {len(scored_sources)} 条源，保留前 {len(limited_sources)} 条")
+        for i, (combined, speed, cn, url, c, ip) in enumerate(limited_sources[:3], 1):
+            q = parse_multicast_quality(url, cn)
+            print(f"    第{i}名: 综合{combined:.1f} (速度{speed:.1f}KB/s 质量{q:.0f}) 城市{c} IP{ip}")
+
         category = get_channel_category(main_channel_name, channel_template)
         if category not in organized_channels:
             organized_channels[category] = {}
         if main_channel_name not in organized_channels[category]:
             organized_channels[category][main_channel_name] = []
-        for speed, original_channel_name, url, city, ip_port in limited_sources:
+        # 注意：这里要保持原有 tuple 结构 (original_channel_name, url, city)
+        for combined, speed, original_channel_name, url, city, ip_port in limited_sources:
             organized_channels[category][main_channel_name].append((original_channel_name, url, city))
     
+    # ★ 修改：写入 zubo_all.txt（已移除示例频道）
     merged_txt_file = os.path.join(MY_TV_DIR, "zubo_all.txt")
     with open(merged_txt_file, "w", encoding="utf-8") as f:
         f.write(f"{current_time}更新,#genre#\n")
-        f.write(f"浙江卫视,http://ali-m-l.cztv.com/channels/lantian/channel001/1080p.m3u8\n")
         for category in channel_template.keys():
             if category in organized_channels and organized_channels[category]:
                 f.write(f"{category},#genre#\n")
@@ -603,16 +672,11 @@ def merge_all_files(channel_template, max_sources_per_channel=10):
     
     print(f"✓ 合并TXT文件: {merged_txt_file}")
     
+    # ★ 修改：写入 zubo_all.m3u（已移除示例频道）
     merged_m3u_file = os.path.join(MY_TV_DIR, "zubo_all.m3u")
     with open(merged_m3u_file, "w", encoding="utf-8") as f:
         f.write("#EXTM3U\n")
-        zjws_logo = logo_dict.get("浙江卫视", "")
-        if zjws_logo:
-            f.write(f'#EXTINF:-1 tvg-id="" tvg-name="浙江卫视" tvg-logo="{zjws_logo}" group-title="示例频道",浙江卫视\n')
-        else:
-            f.write(f'#EXTINF:-1 tvg-id="" tvg-name="浙江卫视" group-title="示例频道",浙江卫视\n')
-        f.write(f"http://ali-m-l.cztv.com/channels/lantian/channel001/1080p.m3u8\n")
-        
+
         for category in channel_template.keys():
             if category in organized_channels and organized_channels[category]:
                 for main_channel, aliases in channel_template[category]:
@@ -625,7 +689,7 @@ def merge_all_files(channel_template, max_sources_per_channel=10):
                             else:
                                 f.write(f'#EXTINF:-1 tvg-id="{main_channel}" tvg-name="{main_channel}" group-title="{category}",{display_name}\n')
                             f.write(f"{url}\n")
-        
+
         if organized_channels.get("其它频道") and organized_channels["其它频道"]:
             other_channels = sorted(organized_channels["其它频道"].keys())
             for main_channel in other_channels:
@@ -640,6 +704,7 @@ def merge_all_files(channel_template, max_sources_per_channel=10):
     
     print(f"✓ 合并M3U文件: {merged_m3u_file}")
     
+    # 写入 zubo_simple.txt
     simple_txt_file = os.path.join(MY_TV_DIR, "zubo_simple.txt")
     with open(simple_txt_file, "w", encoding="utf-8") as f:
         f.write(f"{current_time}更新,#genre#\n")
