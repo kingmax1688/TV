@@ -13,15 +13,23 @@ import json
 import subprocess
 from bs4 import BeautifulSoup
 
-# 配置区
+# ==================== 配置区 ====================
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 }
 
 IP_DIR = "Hotel/ip"
-# 创建IP目录
 if not os.path.exists(IP_DIR):
     os.makedirs(IP_DIR)
+
+# ==================== 分辨率/质量评分配置 ====================
+FFPROBE_TIMEOUT = 8          # ffprobe 探测超时（秒）
+SPEED_FULL_MARK_KB = 2000    # 达到该速度（KB/s）即速度满分
+SPEED_WEIGHT = 0.3           # 速度权重
+QUALITY_WEIGHT = 0.7         # 质量权重（画质优先）
+MIN_QUALITY_TO_KEEP = 0      # 综合分低于此值直接丢弃（0 表示不丢弃）
+# ========================================================
+
 
 # 频道分类定义
 CHANNEL_CATEGORIES = {
@@ -62,29 +70,16 @@ CHANNEL_CATEGORIES = {
     ], 
 }
 
-# 特殊符号映射,在匹配时将特殊符号替换为空
 SPECIAL_SYMBOLS = ["HD", "LT", "XF", "_", ".", "·", "高清", "标清", "超清", "H265", "4K", "FHD", "HDTV"]
 
-# ==================== ★ 新增：分辨率/质量评分配置 ====================
-FFPROBE_TIMEOUT = 8          # ffprobe 探测超时（秒）
-SPEED_FULL_MARK_KB = 2000    # 达到该速度（KB/s）即速度满分
-SPEED_WEIGHT = 0.3           # 速度权重
-QUALITY_WEIGHT = 0.7         # 质量权重（提高质量权重，优先高清）
-MIN_QUALITY_TO_KEEP = 0      # 综合分低于此值的直接丢弃（0 表示不丢弃）
-# ========================================================
 
-
-# 移除特殊符号的函数
 def remove_special_symbols(text):
-    """移除频道名称中的特殊符号"""
     for symbol in SPECIAL_SYMBOLS:
         text = text.replace(symbol, "")
-    
-    # 移除多余的空格
     text = re.sub(r'\s+', '', text)
     return text.strip()
 
-# 改进的频道名称映射,使用精确匹配
+
 CHANNEL_MAPPING = {
     "CCTV-1 综合": ["CCTV1", "CCTV-1", "CCTV1综合", "CCTV1高清", "CCTV1HD", "cctv1","中央1台","sCCTV1-综合","CCTV01","CCTV1-综合","CCTV1-综合高清"],
     "CCTV-2 财经": ["CCTV2", "CCTV-2", "CCTV2财经", "CCTV2高清", "CCTV2HD", "cctv2","中央2台","aCCTV2","sCCTV2-财经","CCTV02","CCTV2-财经高清","CCTV2-财经"],
@@ -287,12 +282,11 @@ CHANNEL_MAPPING = {
 RESULTS_PER_CHANNEL = 30
 
 
-# ==================== ★ 新增：ffprobe 真实分辨率探测 ====================
+# ==================== ffprobe 真实分辨率探测 ====================
 def probe_real_resolution(url, timeout=FFPROBE_TIMEOUT):
     """
     用 ffprobe 探测 HLS 流的真实分辨率。
     返回 (width, height, quality_score)
-    - 探测失败返回 (None, None, 0)
     """
     if not url:
         return None, None, 0
@@ -306,7 +300,7 @@ def probe_real_resolution(url, timeout=FFPROBE_TIMEOUT):
             "-of", "csv=p=0",
             "-analyzeduration", "2M",
             "-probesize", "2M",
-            "-timeout", "5000000",   # 5 秒
+            "-timeout", "5000000",
             url
         ]
         result = subprocess.run(cmd, capture_output=True, text=True, timeout=timeout)
@@ -317,7 +311,6 @@ def probe_real_resolution(url, timeout=FFPROBE_TIMEOUT):
         if not output:
             return None, None, 0
 
-        # ffprobe csv 输出格式：width,height （可能有多个 stream，取第一个）
         for line in output.split('\n'):
             line = line.strip()
             if ',' in line:
@@ -328,14 +321,13 @@ def probe_real_resolution(url, timeout=FFPROBE_TIMEOUT):
                 except (ValueError, IndexError):
                     continue
 
-                # 按分辨率计算质量分
                 pixels = w * h
                 if pixels >= 3840 * 2160:
                     q = 100
                 elif pixels >= 1920 * 1080:
                     q = 90
                 elif pixels >= 1280 * 720:
-                    q = 55   # ★ 720p 大幅降分
+                    q = 55
                 elif pixels >= 720 * 576:
                     q = 30
                 else:
@@ -350,9 +342,7 @@ def probe_real_resolution(url, timeout=FFPROBE_TIMEOUT):
 
 
 def parse_m3u8_quality_fallback(content, url):
-    """
-    当 ffprobe 探测失败时的后备方案：从 m3u8 内容解析质量分。
-    """
+    """当 ffprobe 探测失败时的后备方案"""
     max_res_score = 0
     max_bw_score = 0
 
@@ -405,10 +395,8 @@ def parse_m3u8_quality_fallback(content, url):
             return 55
         else:
             return 40
-# ==================== ★ 新增结束 ====================
 
 
-# 读取台标文件
 def read_logo_file():
     logo_dict = {}
     logo_file = "Hotel/logo.txt"
@@ -426,16 +414,14 @@ def read_logo_file():
             print(f"读取台标文件错误: {e}")
     return logo_dict
 
-# 检测IP:端口可用性
+
 def check_ip_availability(ip_port, timeout=2):
-    """检测IP:端口是否可用"""
     try:
         test_urls = [
             f"http://{ip_port}/",
             f"http://{ip_port}/iptv/live/1000.json?key=txiptv",
             f"http://{ip_port}/ZHGXTV/Public/json/live_interface.txt"
         ]
-        
         for url in test_urls:
             try:
                 response = requests.get(url, timeout=timeout, headers=HEADERS)
@@ -443,19 +429,17 @@ def check_ip_availability(ip_port, timeout=2):
                     return True
             except:
                 continue
-                
         return False
     except Exception as e:
         return False
 
-# 批量检测IP可用性并更新文件
+
 def check_and_update_ip_file(province_file):
-    """检测IP可用性并更新文件"""
+    """检测IP可用性并更新文件，失效的自动删除（文件本身保留）"""
     print(f"\n开始检测 {province_file} 中的IP可用性...")
-    
     available_ips = []
     all_ips = []
-    
+
     try:
         with open(province_file, 'r', encoding='utf-8') as f:
             for line in f:
@@ -465,52 +449,57 @@ def check_and_update_ip_file(province_file):
     except Exception as e:
         print(f"读取IP文件错误: {e}")
         return []
-    
+
     total_ips = len(all_ips)
     print(f"需要检测 {total_ips} 个IP")
-    
+
     with ThreadPoolExecutor(max_workers=50) as executor:
         futures = {}
         for ip_port in all_ips:
             future = executor.submit(check_ip_availability, ip_port)
             futures[future] = ip_port
-        
+
         completed = 0
         for future in as_completed(futures):
             ip_port = futures[future]
             try:
                 is_available = future.result()
                 completed += 1
-                
+
                 if is_available:
                     available_ips.append(ip_port)
                     print(f"✓ {ip_port} 可用 ({completed}/{total_ips})")
                 else:
                     print(f"✗ {ip_port} 不可用 ({completed}/{total_ips})")
-                    
+
                 if completed % 10 == 0 or completed == total_ips:
                     print(f"进度: {completed}/{total_ips} ({completed/total_ips*100:.1f}%) - 可用: {len(available_ips)} 个")
-                    
+
             except Exception as e:
                 completed += 1
                 print(f"✗ {ip_port} 检测失败 ({completed}/{total_ips})")
-    
+
+    # 自动删除失效 IP（写回文件，文件本身保留）
     with open(province_file, 'w', encoding='utf-8') as f:
         for ip_port in available_ips:
             f.write(f"{ip_port}\n")
-    
+
     if available_ips:
         print(f"\n✓ 已更新 {province_file}")
         print(f"  原始IP数量: {total_ips}")
         print(f"  可用IP数量: {len(available_ips)}")
         print(f"  不可用IP已删除: {total_ips - len(available_ips)}")
     else:
-        print(f"\n✓ 已更新 {province_file},没有可用的IP,文件已清空")
-    
+        print(f"\n✓ 已更新 {province_file},没有可用的IP,文件已清空（文件保留）")
+
     return available_ips
 
-# 读取文件并设置参数
+
 def read_config(config_file):
+    """
+    读取 IP 文件，直接返回用户填写的原始 (ip, port)。
+    不做 D 段改写、不做 C 段扩展。
+    """
     ip_configs = []
     try:
         with open(config_file, 'r', encoding='utf-8') as f:
@@ -518,30 +507,23 @@ def read_config(config_file):
                 line = line.strip()
                 if not line or line.startswith("#"):
                     continue
-                
                 if '$' in line:
-                    ip_port, region = line.split('$', 1)
+                    ip_port, _region = line.split('$', 1)
                 else:
                     ip_port = line
-                    region = ""
-                
                 if ':' in ip_port:
                     ip_part, port = ip_port.split(':', 1)
-                    
                     parts = ip_part.split('.')
                     if len(parts) == 4:
-                        a, b, c, d = parts
-                        ip = f"{a}.{b}.{c}.1"
-                        ip_configs.append((ip, port))
+                        ip_configs.append((ip_part, port))
                     else:
                         print(f"跳过无效IP格式: {ip_part}")
-                
         return ip_configs
     except Exception as e:
         print(f"读取文件错误: {e}")
         return []
-        
-# 发送get请求检测url是否可访问
+
+
 def check_ip_port(ip_port, url_end):
     try:
         url = f"http://{ip_port}{url_end}"
@@ -553,26 +535,20 @@ def check_ip_port(ip_port, url_end):
     except:
         return None
 
-# 多线程检测url,获取有效ip_port
-def scan_ip_port(ip, port, url_end):
-    valid_urls = []
-    a, b, c, d = map(int, ip.split('.'))
-    ip_ports = [f"{a}.{b}.{c}.{x}:{port}" for x in range(1, 256)]
-    with ThreadPoolExecutor(max_workers=100) as executor:
-        futures = {executor.submit(check_ip_port, ip_port, url_end): ip_port for ip_port in ip_ports}
-        for future in as_completed(futures):
-            result = future.result()
-            if result:
-                valid_urls.append(result)
-    return valid_urls    
 
-# 发送GET请求获取JSON文件, 解析JSON文件, 获取频道信息
+def scan_ip_port(ip, port, url_end):
+    """只测传入的单个 IP:端口，不做任何 C 段扫描"""
+    ip_port = f"{ip}:{port}"
+    result = check_ip_port(ip_port, url_end)
+    return [result] if result else []
+
+
 def extract_channels(url):
     hotel_channels = []
     try:
         urls = url.split('/', 3)
         url_x = f"{urls[0]}//{urls[2]}"
-        
+
         if "iptv" in url:
             response = requests.get(url, timeout=3)
             json_data = response.json()
@@ -602,48 +578,46 @@ def extract_channels(url):
         return []
 
 
-# ==================== ★ 修改：测速 + ffprobe 质量探测 ====================
+# ==================== 测速 + ffprobe 质量探测 ====================
 def speed_test(channels):
     def show_progress():
         while checked[0] < len(channels):
             numberx = checked[0] / len(channels) * 100
             print(f"已测试{checked[0]}/{len(channels)},可用频道:{len(results)}个,进度:{numberx:.2f}%")
             time.sleep(5)
-    
+
     def worker():
         while True:
             try:
                 channel_name, channel_url = task_queue.get()
-                
+
                 best_speed = 0.0
                 best_quality = 0.0
                 best_resolution = "未知"
                 attempts = 0
                 max_attempts = 2
-                
+
                 while attempts < max_attempts:
                     attempts += 1
                     try:
-                        # 获取 m3u8 文件内容
                         response = requests.get(channel_url, timeout=2)
                         if response.status_code != 200:
                             if attempts < max_attempts:
                                 print(f"第{attempts}次测速 {channel_name}: HTTP {response.status_code},将重试")
                             continue
-                        
+
                         m3u8_content = response.text
                         lines = m3u8_content.strip().split('\n')
-                        
+
                         ts_lists = [line.split('/')[-1] for line in lines if line.startswith('#') == False]
                         if not ts_lists:
                             if attempts < max_attempts:
                                 print(f"第{attempts}次测速 {channel_name}: 没有找到TS列表,将重试")
                             continue
-                        
-                        # 测速逻辑
+
                         channel_url_t = channel_url.rstrip(channel_url.split('/')[-1])
                         ts_url = channel_url_t + ts_lists[0]
-                        
+
                         start_time = time.time()
                         try:
                             with eventlet.Timeout(5, False):
@@ -652,7 +626,7 @@ def speed_test(channels):
                                     if attempts < max_attempts:
                                         print(f"第{attempts}次测速 {channel_name}: TS文件HTTP {ts_response.status_code},将重试")
                                     continue
-                                
+
                                 content_length = 0
                                 chunk_size = 1024 * 1024
                                 for chunk in ts_response.iter_content(chunk_size=chunk_size):
@@ -660,16 +634,16 @@ def speed_test(channels):
                                         content_length += len(chunk)
                                         if content_length >= chunk_size:
                                             break
-                                
+
                                 resp_time = (time.time() - start_time) * 1
-                                
+
                                 if content_length > 0 and resp_time > 0:
                                     normalized_speed = content_length / resp_time / 1024 / 1024
-                                    
+
                                     if normalized_speed > best_speed:
                                         best_speed = normalized_speed
-                                    
-                                    # ★ 测速成功后，用 ffprobe 探测真实分辨率
+
+                                    # ffprobe 探测真实分辨率
                                     if best_quality == 0:
                                         try:
                                             w, h, q = probe_real_resolution(channel_url)
@@ -678,14 +652,13 @@ def speed_test(channels):
                                                 best_resolution = f"{w}x{h}"
                                                 print(f"  🎬 {channel_name}: ffprobe 探测到 {w}x{h}，质量分 {q}")
                                             else:
-                                                # ffprobe 失败，用后备方案
                                                 fallback_q = parse_m3u8_quality_fallback(m3u8_content, channel_url)
                                                 best_quality = fallback_q
                                                 best_resolution = "fallback"
                                                 print(f"  ⚠️ {channel_name}: ffprobe 探测失败，用 m3u8 后备质量分 {fallback_q:.0f}")
                                         except Exception as e:
                                             print(f"  ⚠️ {channel_name}: ffprobe 异常 {e}")
-                                    
+
                                     if normalized_speed > 0.001 and attempts < max_attempts:
                                         break
                                     else:
@@ -702,17 +675,16 @@ def speed_test(channels):
                             if attempts < max_attempts:
                                 print(f"第{attempts}次测速 {channel_name} 失败: {str(e)},将重试")
                             continue
-                            
+
                     except Exception as e:
                         if attempts < max_attempts:
                             print(f"第{attempts}次测速 {channel_name} 处理失败: {str(e)},将重试")
                         continue
-                
-                # ★ 综合评分：速度分 × SPEED_WEIGHT + 质量分 × QUALITY_WEIGHT
+
                 if best_speed > 0.2:
                     speed_score = min(100.0, best_speed * 1024 / SPEED_FULL_MARK_KB * 100)
                     final_score = speed_score * SPEED_WEIGHT + best_quality * QUALITY_WEIGHT
-                    
+
                     if final_score >= MIN_QUALITY_TO_KEEP:
                         result = (channel_name, channel_url, f"{final_score:.2f}")
                         print(f"✓ {channel_name}, {channel_url}: 速度{best_speed:.3f}MB/s 分辨率{best_resolution} 质量{best_quality:.0f} 综合{final_score:.1f}")
@@ -721,55 +693,53 @@ def speed_test(channels):
                         print(f"× {channel_name}, {channel_url}: 综合分 {final_score:.1f} 低于阈值 {MIN_QUALITY_TO_KEEP}，丢弃")
                 else:
                     print(f"× {channel_name}, {channel_url}: 经过{attempts}次测速,最佳速度 {best_speed:.3f} MB/s,已过滤")
-                
+
                 checked[0] += 1
             except Exception as e:
                 checked[0] += 1
                 print(f"处理 {channel_name} 时发生错误: {e}")
             finally:
                 task_queue.task_done()
-    
+
     task_queue = Queue()
     results = []
     checked = [0]
-    
+
     Thread(target=show_progress, daemon=True).start()
-    
+
     for _ in range(min(10, len(channels))):
         Thread(target=worker, daemon=True).start()
-    
+
     for channel in channels:
         task_queue.put(channel)
-    
+
     task_queue.join()
     return results
-# ==================== ★ 修改结束 ====================
 
 
-# 精确频道名称匹配函数
 def exact_channel_match(channel_name, pattern_name):
     clean_name = remove_special_symbols(channel_name.strip().lower())
     clean_pattern = remove_special_symbols(pattern_name.strip().lower())
-    
+
     if clean_name == clean_pattern:
         return True
-    
+
     cctv_match = re.match(r'^cctv[-_\s]?(\d+[a-z]?)$', clean_name)
     pattern_match = re.match(r'^cctv[-_\s]?(\d+[a-z]?)$', clean_pattern)
-    
+
     if cctv_match and pattern_match:
         cctv_num1 = cctv_match.group(1)
         cctv_num2 = pattern_match.group(1)
-        
+
         if cctv_num1 != cctv_num2:
             return False
         else:
             return clean_name == clean_pattern
-    
+
     if "+" in clean_name and "+" in clean_pattern:
         if "cctv5+" in clean_name and "cctv5+" in clean_pattern:
             return True
-    
+
     if clean_pattern in clean_name:
         if clean_pattern.endswith(('1', '2', '3', '4', '5', '6', '7', '8', '9', '0')):
             pattern_len = len(clean_pattern)
@@ -778,10 +748,10 @@ def exact_channel_match(channel_name, pattern_name):
                 if next_char.isdigit():
                     return False
         return True
-    
+
     return False
 
-# 统一频道名称 - 使用精确匹配
+
 def unify_channel_name(channels_list):
     alias_list = []
     for std_name, aliases in CHANNEL_MAPPING.items():
@@ -814,34 +784,34 @@ def unify_channel_name(channels_list):
 
     return new_channels_list
 
-# 按照CHANNEL_CATEGORIES中指定的顺序排序
+
 def sort_channels_by_specified_order(channels_list, category_channels):
     channel_order = {channel: index for index, channel in enumerate(category_channels)}
-    
+
     def get_channel_sort_key(item):
         name, url, speed = item
-        
+
         if name in channel_order:
             return (channel_order[name], -float(speed))
         else:
             return (float('inf'), name)
-    
+
     return sorted(channels_list, key=get_channel_sort_key)
 
-# 定义排序函数
+
 def channel_key(channel_name):
     match = re.search(r'\d+', channel_name)
     return int(match.group()) if match else float('inf')
 
-# 分类频道
+
 def classify_channels_by_category(channels_data):
     categorized_channels = {}
-    
+
     for category in CHANNEL_CATEGORIES.keys():
         categorized_channels[category] = []
-    
+
     categorized_channels["其他频道"] = []
-    
+
     for line in channels_data:
         try:
             parts = line.strip().split(',')
@@ -851,35 +821,35 @@ def classify_channels_by_category(channels_data):
             url = parts[1]
             speed = parts[2] if len(parts) > 2 else "0.000"
             assigned = False
-            
+
             for category, channel_list in CHANNEL_CATEGORIES.items():
                 if name in channel_list:
                     categorized_channels[category].append((name, url, speed))
                     assigned = True
                     break
-            
+
             if not assigned:
                 categorized_channels["其他频道"].append((name, url, speed))
         except Exception as e:
             print(f"分类频道时出错: {e}, 行: {line}")
             continue
-    
+
     return categorized_channels
 
-# 生成M3U文件
+
 def generate_m3u_file(txt_file_path, m3u_file_path):
     print(f"开始生成M3U文件: {m3u_file_path}")
-    
+
     logo_dict = read_logo_file()
     epg_url = "https://gh-proxy.com/https://raw.githubusercontent.com/adminouyang/231006/refs/heads/main/py/TV/EPG/epg.xml"
-    
+
     channel_id_map = {}
     try:
         print("正在解析EPG数据以获取频道ID...")
         response = requests.get(epg_url, timeout=10)
         response.raise_for_status()
         soup = BeautifulSoup(response.content, 'xml')
-        
+
         for channel_tag in soup.find_all('channel'):
             channel_id = channel_tag.get('id')
             display_name_tag = channel_tag.find('display-name')
@@ -889,57 +859,57 @@ def generate_m3u_file(txt_file_path, m3u_file_path):
         print(f"从EPG解析了 {len(channel_id_map)} 个频道的ID映射。")
     except Exception as e:
         print(f"警告：解析EPG链接失败,tvg-id将无法填入。错误: {e}")
-    
+
     with open(m3u_file_path, 'w', encoding='utf-8') as m3u_file:
         m3u_file.write(f'#EXTM3U x-tvg-url="{epg_url}"\n')
-        
+
         with open(txt_file_path, 'r', encoding='utf-8') as txt_file:
             current_group = ""
-            
+
             for line in txt_file:
                 line = line.strip()
                 if not line:
                     continue
-                
+
                 if line.endswith(',#genre#'):
                     current_group = line.replace(',#genre#', '')
                     continue
-                
+
                 if ',' in line and not line.startswith('#'):
                     try:
                         parts = line.split(',')
                         if len(parts) >= 2:
                             channel_name = parts[0]
                             channel_url = parts[1]
-                            
+
                             logo_url = logo_dict.get(channel_name, "")
                             tvg_id = channel_id_map.get(channel_name, "")
                             tvg_id_attr = f' tvg-id="{tvg_id}"' if tvg_id else ""
-                            
+
                             m3u_file.write(f'#EXTINF:-1 {tvg_id_attr} tvg-name="{channel_name}" tvg-logo="{logo_url}" group-title="{current_group}",{channel_name}\n')
                             m3u_file.write(f'{channel_url}\n')
                     except Exception as e:
                         print(f"处理频道行错误: {line}, 错误: {e}")
-    
+
     print(f"M3U文件已生成: {m3u_file_path}")
 
-# 分组并排序频道
+
 def group_and_sort_channels_by_category(categorized_channels):
     processed_categories = {}
-    
+
     for category, channels in categorized_channels.items():
         if not channels:
             continue
-            
+
         if category in CHANNEL_CATEGORIES:
             category_order = CHANNEL_CATEGORIES[category]
-            
+
             channel_groups = {}
             for name, url, speed in channels:
                 if name not in channel_groups:
                     channel_groups[name] = []
                 channel_groups[name].append((name, url, speed))
-            
+
             grouped_channels = []
             for channel_name in category_order:
                 if channel_name in channel_groups:
@@ -948,114 +918,121 @@ def group_and_sort_channels_by_category(categorized_channels):
                     url_list = url_list[:RESULTS_PER_CHANNEL]
                     grouped_channels.extend(url_list)
                     del channel_groups[channel_name]
-            
+
             for channel_name, url_list in channel_groups.items():
                 url_list.sort(key=lambda x: -float(x[2]))
                 url_list = url_list[:RESULTS_PER_CHANNEL]
                 grouped_channels.extend(url_list)
-            
+
             grouped_channels = sort_channels_by_specified_order(grouped_channels, category_order)
             processed_categories[category] = grouped_channels
         else:
             channels.sort(key=lambda x: -float(x[2]))
             channel_groups = {}
-            
+
             for name, url, speed in channels:
                 if name not in channel_groups:
                     channel_groups[name] = []
                 channel_groups[name].append((name, url, speed))
-            
+
             grouped_channels = []
             for channel_name, url_list in channel_groups.items():
                 url_list.sort(key=lambda x: -float(x[2]))
                 url_list = url_list[:RESULTS_PER_CHANNEL]
                 grouped_channels.extend(url_list)
-            
+
             grouped_channels.sort(key=lambda x: x[0])
             processed_categories[category] = grouped_channels
-    
+
     return processed_categories
 
-# 获取酒店源流程        
+
+# ==================== 酒店源主流程 ====================
 def hotel_iptv(config_file):
+    # 步骤1：检测IP可用性，失效的自动删除
     available_ips = check_and_update_ip_file(config_file)
-    
+
     if not available_ips:
         print(f"没有可用的IP,跳过 {config_file}")
         return
-    
+
+    # 步骤2：读取用户填写的 IP:端口
     ip_configs = read_config(config_file)
+    print(f"  读取到 {len(ip_configs)} 个待扫描 IP:端口")
+
     valid_urls = []
     channels = []
     configs = []
     url_ends = ["/iptv/live/1000.json?key=txiptv", "/ZHGXTV/Public/json/live_interface.txt"]
-    
+
     for url_end in url_ends:
         for ip, port in ip_configs:
             configs.append((ip, port, url_end))
-    
+
+    # 步骤3：逐个扫描用户提供的 IP:端口
     for ip, port, url_end in configs:
         valid_urls.extend(scan_ip_port(ip, port, url_end))
-    
+
     print(f"扫描完成,获取有效url共：{len(valid_urls)}个")
-    
+
     for valid_url in valid_urls:
         channels.extend(extract_channels(valid_url))
-    
+
     print(f"共获取频道：{len(channels)}个\n开始测速")
+
+    # 步骤4：测速 + ffprobe 分辨率探测 + 综合评分
     results = speed_test(channels)
-    
+
     if not results:
         print(f"⚠️ 警告：IP检测通过但所有频道都不可用,将该IP视为不可用")
-        print(f"🗑️ 从 {config_file} 中删除该IP")
-        
+        print(f"🗑️ 清空 {config_file} 的内容（文件本身保留）")
+
         with open(config_file, 'w', encoding='utf-8') as f:
             f.write("")
-        
-        print(f"✓ 已清空 {config_file}（没有可用的频道）")
+
+        print(f"✓ 已清空 {config_file} 的内容（没有可用的频道）")
         return
     else:
         print(f"✓ 找到 {len(results)} 个可用频道,IP保持有效")
-    
-    # results 里的第三字段已经是综合分，排序自动按综合分从高到低
+
+    # 步骤5：按综合分排序（频道内第一条即最优）
     results.sort(key=lambda x: -float(x[2]))
     results.sort(key=lambda x: channel_key(x[0]))
-    
+
     unified_channels = unify_channel_name(results)
-    
+
     with open('1.txt', 'a', encoding='utf-8') as f:
         for line in unified_channels:
             f.write(line.split(',')[0] + ',' + line.split(',')[1] + '\n')
-    
+
     print("测速完成")
 
-# 主函数
+
+# ==================== 主函数 ====================
 def main():
     start_time = datetime.datetime.now()
     print(f"脚本开始运行时间: {start_time.strftime('%Y-%m-%d %H:%M:%S')} (北京时间)")
-    
+
     province_files = [f for f in os.listdir(IP_DIR) if f.endswith('.txt')]
-    
+
     for province_file in province_files:
         province_name = province_file.replace('.txt', '')
         print(f"\n处理 {province_name} 的IP...")
-        
+
         config_file = os.path.join(IP_DIR, province_file)
         hotel_iptv(config_file)
-        try:
-            if os.path.exists(config_file) and os.path.getsize(config_file) == 0:
-                os.remove(config_file)
-                print(f"  检测到空文件,已删除: {province_file}")
-        except Exception as e:
-            print(f"  处理文件 {province_file} 时发生错误: {e}")
-    
+
+        # ★ 保留空文件，只提示不删除
+        if os.path.exists(config_file) and os.path.getsize(config_file) == 0:
+            print(f"  ⚠️ {province_file} 当前为空（所有IP已失效），文件保留，等待你手动补充")
+
     if not os.path.exists('1.txt'):
         print("没有找到频道数据文件")
         return
-    
+
     with open('1.txt', 'r', encoding='utf-8') as f:
         raw_lines = f.readlines()
-    
+
     channels_data = []
     for line in raw_lines:
         if ',' in line and line.strip():
@@ -1065,10 +1042,10 @@ def main():
                 url = parts[1]
                 speed = parts[2] if len(parts) > 2 else "0.000"
                 channels_data.append(f"{name},{url},{speed}")
-    
+
     categorized = classify_channels_by_category(channels_data)
     processed_categories = group_and_sort_channels_by_category(categorized)
-    
+
     file_paths = []
     for category, channels in processed_categories.items():
         if channels:
@@ -1077,60 +1054,61 @@ def main():
                 f.write(f"{category},#genre#\n")
                 for name, url, speed in channels:
                     f.write(f"{name},{url}\n")
-            
+
             file_paths.append(filename)
             print(f"已保存 {len(channels)} 个频道到 {filename}")
-    
+
     file_contents = []
-    
+
     for file_path in file_paths:
         if os.path.exists(file_path):
             with open(file_path, 'r', encoding="utf-8") as f:
                 content = f.read()
                 file_contents.append(content)
-    
+
     beijing_time = datetime.datetime.now()
     current_time = beijing_time.strftime("%Y/%m/%d %H:%M")
-    
+
     with open("1.txt", "w", encoding="utf-8") as f:
         f.write(f"{current_time}更新,#genre#\n")
         for content in file_contents:
             f.write(f"\n{content}")
-    
+
     with open('1.txt', 'r', encoding="utf-8") as f:
         lines = f.readlines()
-    
-    unique_lines = [] 
-    seen_lines = set() 
+
+    unique_lines = []
+    seen_lines = set()
     for line in lines:
         if line not in seen_lines:
             unique_lines.append(line)
             seen_lines.add(line)
-    
+
     output_dir = "Hotel"
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
-    
+
     txt_output_path = 'Hotel/iptv.txt'
     with open(txt_output_path, 'w', encoding="utf-8") as f:
         f.writelines(unique_lines)
-    
+
     m3u_output_path = 'Hotel/iptv.m3u'
     generate_m3u_file(txt_output_path, m3u_output_path)
-    
+
     files_to_remove = ["1.txt"] + file_paths
     for file in files_to_remove:
         if os.path.exists(file):
             os.remove(file)
-    
+
     end_time = datetime.datetime.now()
     print(f"\n脚本结束运行时间: {end_time.strftime('%Y-%m-%d %H:%M:%S')} (北京时间)")
-    
+
     run_time = end_time - start_time
     hours, remainder = divmod(run_time.seconds, 3600)
     minutes, seconds = divmod(remainder, 60)
     print(f"总运行时间: {hours}小时{minutes}分{seconds}秒")
     print("任务运行完毕,所有频道合并到iptv.txt和iptv.m3u")
+
 
 if __name__ == "__main__":
     main()
