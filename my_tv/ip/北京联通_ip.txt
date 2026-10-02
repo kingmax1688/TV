@@ -2,3 +2,4 @@
 bit.famcloud.top:9878
 naslmd2.myqnapcloud.com:4022
 ccj.gohome.link:55556
+triq.cc:8012
