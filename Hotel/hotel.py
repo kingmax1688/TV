@@ -276,6 +276,74 @@ CHANNEL_MAPPING = {
 
 RESULTS_PER_CHANNEL = 30
 
+# ==================== ★ 新增：m3u8 画质解析 ====================
+def parse_m3u8_quality(content, url):
+    """
+    从 m3u8 内容中解析画质信息，返回 0-100 的质量分。
+    - 优先用 #EXT-X-STREAM-INF 里的 RESOLUTION 和 BANDWIDTH
+    - 拿不到时从 URL 关键词推断
+    - 都没线索就给默认中等分 55
+    """
+    max_res_score = 0
+    max_bw_score = 0
+
+    for line in content.split('\n'):
+        line = line.strip()
+        if not line.startswith('#EXT-X-STREAM-INF'):
+            continue
+
+        # 解析 RESOLUTION
+        res_match = re.search(r'RESOLUTION=(\d+)x(\d+)', line, re.IGNORECASE)
+        if res_match:
+            w = int(res_match.group(1))
+            h = int(res_match.group(2))
+            pixels = w * h
+            if pixels >= 3840 * 2160:
+                max_res_score = max(max_res_score, 100)   # 4K
+            elif pixels >= 1920 * 1080:
+                max_res_score = max(max_res_score, 85)    # 1080p
+            elif pixels >= 1280 * 720:
+                max_res_score = max(max_res_score, 65)    # 720p
+            elif pixels >= 720 * 576:
+                max_res_score = max(max_res_score, 40)    # SD
+            else:
+                max_res_score = max(max_res_score, 20)
+
+        # 解析 BANDWIDTH
+        bw_match = re.search(r'BANDWIDTH=(\d+)', line, re.IGNORECASE)
+        if bw_match:
+            bw = int(bw_match.group(1))
+            if bw >= 8_000_000:
+                max_bw_score = max(max_bw_score, 100)
+            elif bw >= 4_000_000:
+                max_bw_score = max(max_bw_score, 80)
+            elif bw >= 2_000_000:
+                max_bw_score = max(max_bw_score, 60)
+            else:
+                max_bw_score = max(max_bw_score, 30)
+
+    # 综合分辨率分和带宽分
+    if max_res_score > 0 and max_bw_score > 0:
+        quality = (max_res_score + max_bw_score) / 2
+    elif max_res_score > 0:
+        quality = max_res_score
+    elif max_bw_score > 0:
+        quality = max_bw_score
+    else:
+        # 拿不到元数据，退而求其次从 URL 推断
+        u = url.lower()
+        if '4k' in u or 'uhd' in u:
+            quality = 90
+        elif 'fhd' in u or '1080' in u:
+            quality = 75
+        elif 'hd' in u or '720' in u:
+            quality = 60
+        else:
+            quality = 55  # 未知默认中等分
+
+    return quality
+# ==================== ★ 新增结束 ====================
+
 # 读取台标文件
 def read_logo_file():
     logo_dict = {}
@@ -489,7 +557,7 @@ def extract_channels(url):
         print(f"解析频道错误 {url}: {e}")
         return []
 
-# 测速函数,对速度过慢的进行重新测速
+# ==================== ★ 修改：测速 + 质量综合评分 ====================
 def speed_test(channels):
     def show_progress():
         while checked[0] < len(channels):
@@ -502,8 +570,9 @@ def speed_test(channels):
             try:
                 channel_name, channel_url = task_queue.get()
                 
-                # 记录最佳速度
+                # 记录最佳速度和质量
                 best_speed = 0.0
+                best_quality = 0.0   # ★ 新增：记录最佳质量分
                 attempts = 0
                 max_attempts = 2  # 最多尝试2次
                 
@@ -516,8 +585,16 @@ def speed_test(channels):
                             if attempts < max_attempts:
                                 print(f"第{attempts}次测速 {channel_name}: HTTP {response.status_code},将重试")
                             continue
-                            
-                        lines = response.text.strip().split('\n')
+                        
+                        m3u8_content = response.text
+                        lines = m3u8_content.strip().split('\n')
+                        
+                        # ★ 新增：解析质量分
+                        quality = parse_m3u8_quality(m3u8_content, channel_url)
+                        if quality > best_quality:
+                            best_quality = quality
+                        # ★ 新增结束
+                        
                         ts_lists = [line.split('/')[-1] for line in lines if line.startswith('#') == False]
                         if not ts_lists:
                             if attempts < max_attempts:
@@ -580,13 +657,20 @@ def speed_test(channels):
                             print(f"第{attempts}次测速 {channel_name} 处理失败: {str(e)},将重试")
                         continue
                 
-                # 根据最佳速度决定是否保留
+                # ★ 修改：按"速度 + 质量"综合分入库
                 if best_speed > 0.2:
-                    result = channel_name, channel_url, f"{best_speed:.3f}"
+                    # 速度分：2 MB/s 为满分
+                    speed_score = min(100.0, best_speed / 2.0 * 100)
+                    # 质量分：来自 m3u8 解析
+                    # 综合分 = 速度 × 0.4 + 质量 × 0.6
+                    final_score = speed_score * 0.4 + best_quality * 0.6
+                    
+                    # ★ 把综合分写进原 speed 字段，下游排序自动按综合分走
+                    result = (channel_name, channel_url, f"{final_score:.2f}")
                     if attempts > 1:
-                        print(f"✓ {channel_name}, {channel_url}: {best_speed:.3f} MB/s (经过{attempts}次测速)")
+                        print(f"✓ {channel_name}, {channel_url}: 速度{best_speed:.3f}MB/s 质量{best_quality:.0f} 综合{final_score:.1f} (经过{attempts}次测速)")
                     else:
-                        print(f"✓ {channel_name}, {channel_url}: {best_speed:.3f} MB/s")
+                        print(f"✓ {channel_name}, {channel_url}: 速度{best_speed:.3f}MB/s 质量{best_quality:.0f} 综合{final_score:.1f}")
                     results.append(result)
                 else:
                     print(f"× {channel_name}, {channel_url}: 经过{attempts}次测速,最佳速度 {best_speed:.3f} MB/s,已过滤")
@@ -612,6 +696,7 @@ def speed_test(channels):
     
     task_queue.join()
     return results
+# ==================== ★ 修改结束 ====================
 
 # 精确频道名称匹配函数
 def exact_channel_match(channel_name, pattern_name):
@@ -971,6 +1056,7 @@ def hotel_iptv(config_file):
         print(f"✓ 找到 {len(results)} 个可用频道,IP保持有效")
     
     # 对频道进行排序和统一名称（原有逻辑）
+    # ★ 注：results 里的第三字段已经是综合分，排序自动按综合分从高到低
     results.sort(key=lambda x: -float(x[2]))
     results.sort(key=lambda x: channel_key(x[0]))
     
