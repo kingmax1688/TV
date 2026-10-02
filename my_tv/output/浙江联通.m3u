@@ -1,409 +1,409 @@
 #EXTM3U
 #EXTINF:-1 tvg-id="CCTV16 4K" tvg-name="CCTV16 4K" group-title="其它频道",CCTV16 4K
-http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.63:5140
-#EXTINF:-1 tvg-id="CCTV16 4K" tvg-name="CCTV16 4K" group-title="其它频道",CCTV16 4K
 http://jellyfin.eversouthhangzhou.com.cn:8188/rtp/233.50.201.63:5140
 #EXTINF:-1 tvg-id="CCTV16 4K" tvg-name="CCTV16 4K" group-title="其它频道",CCTV16 4K
 http://123.157.31.182:7912/rtp/233.50.201.63:5140
 #EXTINF:-1 tvg-id="CCTV16 4K" tvg-name="CCTV16 4K" group-title="其它频道",CCTV16 4K
+http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.63:5140
+#EXTINF:-1 tvg-id="CCTV16 4K" tvg-name="CCTV16 4K" group-title="其它频道",CCTV16 4K
 http://bgs.cchui.fun:7912/rtp/233.50.201.63:5140
-#EXTINF:-1 tvg-id="茶频道HD" tvg-name="茶频道HD" group-title="其它频道",茶频道HD
-http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.188:5140
 #EXTINF:-1 tvg-id="茶频道HD" tvg-name="茶频道HD" group-title="其它频道",茶频道HD
 http://jellyfin.eversouthhangzhou.com.cn:8188/rtp/233.50.201.188:5140
 #EXTINF:-1 tvg-id="茶频道HD" tvg-name="茶频道HD" group-title="其它频道",茶频道HD
 http://123.157.31.182:7912/rtp/233.50.201.188:5140
 #EXTINF:-1 tvg-id="茶频道HD" tvg-name="茶频道HD" group-title="其它频道",茶频道HD
+http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.188:5140
+#EXTINF:-1 tvg-id="茶频道HD" tvg-name="茶频道HD" group-title="其它频道",茶频道HD
 http://bgs.cchui.fun:7912/rtp/233.50.201.188:5140
-#EXTINF:-1 tvg-id="环球旅游HD" tvg-name="环球旅游HD" group-title="其它频道",环球旅游HD
-http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.202.31:5140
 #EXTINF:-1 tvg-id="环球旅游HD" tvg-name="环球旅游HD" group-title="其它频道",环球旅游HD
 http://jellyfin.eversouthhangzhou.com.cn:8188/rtp/233.50.202.31:5140
 #EXTINF:-1 tvg-id="环球旅游HD" tvg-name="环球旅游HD" group-title="其它频道",环球旅游HD
 http://123.157.31.182:7912/rtp/233.50.202.31:5140
 #EXTINF:-1 tvg-id="环球旅游HD" tvg-name="环球旅游HD" group-title="其它频道",环球旅游HD
+http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.202.31:5140
+#EXTINF:-1 tvg-id="环球旅游HD" tvg-name="环球旅游HD" group-title="其它频道",环球旅游HD
 http://bgs.cchui.fun:7912/rtp/233.50.202.31:5140
-#EXTINF:-1 tvg-id="生态环境HD" tvg-name="生态环境HD" group-title="其它频道",生态环境HD
-http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.202.103:5140
 #EXTINF:-1 tvg-id="生态环境HD" tvg-name="生态环境HD" group-title="其它频道",生态环境HD
 http://jellyfin.eversouthhangzhou.com.cn:8188/rtp/233.50.202.103:5140
 #EXTINF:-1 tvg-id="生态环境HD" tvg-name="生态环境HD" group-title="其它频道",生态环境HD
 http://123.157.31.182:7912/rtp/233.50.202.103:5140
 #EXTINF:-1 tvg-id="生态环境HD" tvg-name="生态环境HD" group-title="其它频道",生态环境HD
+http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.202.103:5140
+#EXTINF:-1 tvg-id="生态环境HD" tvg-name="生态环境HD" group-title="其它频道",生态环境HD
 http://bgs.cchui.fun:7912/rtp/233.50.202.103:5140
-#EXTINF:-1 tvg-id="重庆卫视HD" tvg-name="重庆卫视HD" group-title="其它频道",重庆卫视HD
-http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.143:5140
 #EXTINF:-1 tvg-id="重庆卫视HD" tvg-name="重庆卫视HD" group-title="其它频道",重庆卫视HD
 http://jellyfin.eversouthhangzhou.com.cn:8188/rtp/233.50.201.143:5140
 #EXTINF:-1 tvg-id="重庆卫视HD" tvg-name="重庆卫视HD" group-title="其它频道",重庆卫视HD
 http://123.157.31.182:7912/rtp/233.50.201.143:5140
 #EXTINF:-1 tvg-id="重庆卫视HD" tvg-name="重庆卫视HD" group-title="其它频道",重庆卫视HD
+http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.143:5140
+#EXTINF:-1 tvg-id="重庆卫视HD" tvg-name="重庆卫视HD" group-title="其它频道",重庆卫视HD
 http://bgs.cchui.fun:7912/rtp/233.50.201.143:5140
-#EXTINF:-1 tvg-id="江苏卫视HD" tvg-name="江苏卫视HD" group-title="其它频道",江苏卫视HD
-http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.106:5140
 #EXTINF:-1 tvg-id="江苏卫视HD" tvg-name="江苏卫视HD" group-title="其它频道",江苏卫视HD
 http://jellyfin.eversouthhangzhou.com.cn:8188/rtp/233.50.201.106:5140
 #EXTINF:-1 tvg-id="江苏卫视HD" tvg-name="江苏卫视HD" group-title="其它频道",江苏卫视HD
 http://123.157.31.182:7912/rtp/233.50.201.106:5140
 #EXTINF:-1 tvg-id="江苏卫视HD" tvg-name="江苏卫视HD" group-title="其它频道",江苏卫视HD
+http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.106:5140
+#EXTINF:-1 tvg-id="江苏卫视HD" tvg-name="江苏卫视HD" group-title="其它频道",江苏卫视HD
 http://bgs.cchui.fun:7912/rtp/233.50.201.106:5140
-#EXTINF:-1 tvg-id="浙江卫视HD" tvg-name="浙江卫视HD" group-title="其它频道",浙江卫视HD
-http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.100:5140
 #EXTINF:-1 tvg-id="浙江卫视HD" tvg-name="浙江卫视HD" group-title="其它频道",浙江卫视HD
 http://jellyfin.eversouthhangzhou.com.cn:8188/rtp/233.50.201.100:5140
 #EXTINF:-1 tvg-id="浙江卫视HD" tvg-name="浙江卫视HD" group-title="其它频道",浙江卫视HD
 http://123.157.31.182:7912/rtp/233.50.201.100:5140
 #EXTINF:-1 tvg-id="浙江卫视HD" tvg-name="浙江卫视HD" group-title="其它频道",浙江卫视HD
+http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.100:5140
+#EXTINF:-1 tvg-id="浙江卫视HD" tvg-name="浙江卫视HD" group-title="其它频道",浙江卫视HD
 http://bgs.cchui.fun:7912/rtp/233.50.201.100:5140
-#EXTINF:-1 tvg-id="东方卫视HD" tvg-name="东方卫视HD" group-title="其它频道",东方卫视HD
-http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.125:5140
 #EXTINF:-1 tvg-id="东方卫视HD" tvg-name="东方卫视HD" group-title="其它频道",东方卫视HD
 http://jellyfin.eversouthhangzhou.com.cn:8188/rtp/233.50.201.125:5140
 #EXTINF:-1 tvg-id="东方卫视HD" tvg-name="东方卫视HD" group-title="其它频道",东方卫视HD
 http://123.157.31.182:7912/rtp/233.50.201.125:5140
 #EXTINF:-1 tvg-id="东方卫视HD" tvg-name="东方卫视HD" group-title="其它频道",东方卫视HD
+http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.125:5140
+#EXTINF:-1 tvg-id="东方卫视HD" tvg-name="东方卫视HD" group-title="其它频道",东方卫视HD
 http://bgs.cchui.fun:7912/rtp/233.50.201.125:5140
-#EXTINF:-1 tvg-id="深圳卫视HD" tvg-name="深圳卫视HD" group-title="其它频道",深圳卫视HD
-http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.101:5140
 #EXTINF:-1 tvg-id="深圳卫视HD" tvg-name="深圳卫视HD" group-title="其它频道",深圳卫视HD
 http://jellyfin.eversouthhangzhou.com.cn:8188/rtp/233.50.201.101:5140
 #EXTINF:-1 tvg-id="深圳卫视HD" tvg-name="深圳卫视HD" group-title="其它频道",深圳卫视HD
 http://123.157.31.182:7912/rtp/233.50.201.101:5140
 #EXTINF:-1 tvg-id="深圳卫视HD" tvg-name="深圳卫视HD" group-title="其它频道",深圳卫视HD
+http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.101:5140
+#EXTINF:-1 tvg-id="深圳卫视HD" tvg-name="深圳卫视HD" group-title="其它频道",深圳卫视HD
 http://bgs.cchui.fun:7912/rtp/233.50.201.101:5140
-#EXTINF:-1 tvg-id="北京卫视HD" tvg-name="北京卫视HD" group-title="其它频道",北京卫视HD
-http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.107:5140
 #EXTINF:-1 tvg-id="北京卫视HD" tvg-name="北京卫视HD" group-title="其它频道",北京卫视HD
 http://jellyfin.eversouthhangzhou.com.cn:8188/rtp/233.50.201.107:5140
 #EXTINF:-1 tvg-id="北京卫视HD" tvg-name="北京卫视HD" group-title="其它频道",北京卫视HD
 http://123.157.31.182:7912/rtp/233.50.201.107:5140
 #EXTINF:-1 tvg-id="北京卫视HD" tvg-name="北京卫视HD" group-title="其它频道",北京卫视HD
+http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.107:5140
+#EXTINF:-1 tvg-id="北京卫视HD" tvg-name="北京卫视HD" group-title="其它频道",北京卫视HD
 http://bgs.cchui.fun:7912/rtp/233.50.201.107:5140
-#EXTINF:-1 tvg-id="山东卫视HD" tvg-name="山东卫视HD" group-title="其它频道",山东卫视HD
-http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.105:5140
 #EXTINF:-1 tvg-id="山东卫视HD" tvg-name="山东卫视HD" group-title="其它频道",山东卫视HD
 http://jellyfin.eversouthhangzhou.com.cn:8188/rtp/233.50.201.105:5140
 #EXTINF:-1 tvg-id="山东卫视HD" tvg-name="山东卫视HD" group-title="其它频道",山东卫视HD
 http://123.157.31.182:7912/rtp/233.50.201.105:5140
 #EXTINF:-1 tvg-id="山东卫视HD" tvg-name="山东卫视HD" group-title="其它频道",山东卫视HD
+http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.105:5140
+#EXTINF:-1 tvg-id="山东卫视HD" tvg-name="山东卫视HD" group-title="其它频道",山东卫视HD
 http://bgs.cchui.fun:7912/rtp/233.50.201.105:5140
-#EXTINF:-1 tvg-id="天津卫视HD" tvg-name="天津卫视HD" group-title="其它频道",天津卫视HD
-http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.104:5140
 #EXTINF:-1 tvg-id="天津卫视HD" tvg-name="天津卫视HD" group-title="其它频道",天津卫视HD
 http://jellyfin.eversouthhangzhou.com.cn:8188/rtp/233.50.201.104:5140
 #EXTINF:-1 tvg-id="天津卫视HD" tvg-name="天津卫视HD" group-title="其它频道",天津卫视HD
 http://123.157.31.182:7912/rtp/233.50.201.104:5140
 #EXTINF:-1 tvg-id="天津卫视HD" tvg-name="天津卫视HD" group-title="其它频道",天津卫视HD
+http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.104:5140
+#EXTINF:-1 tvg-id="天津卫视HD" tvg-name="天津卫视HD" group-title="其它频道",天津卫视HD
 http://bgs.cchui.fun:7912/rtp/233.50.201.104:5140
-#EXTINF:-1 tvg-id="贵州卫视HD" tvg-name="贵州卫视HD" group-title="其它频道",贵州卫视HD
-http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.142:5140
 #EXTINF:-1 tvg-id="贵州卫视HD" tvg-name="贵州卫视HD" group-title="其它频道",贵州卫视HD
 http://jellyfin.eversouthhangzhou.com.cn:8188/rtp/233.50.201.142:5140
 #EXTINF:-1 tvg-id="贵州卫视HD" tvg-name="贵州卫视HD" group-title="其它频道",贵州卫视HD
 http://123.157.31.182:7912/rtp/233.50.201.142:5140
 #EXTINF:-1 tvg-id="贵州卫视HD" tvg-name="贵州卫视HD" group-title="其它频道",贵州卫视HD
+http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.142:5140
+#EXTINF:-1 tvg-id="贵州卫视HD" tvg-name="贵州卫视HD" group-title="其它频道",贵州卫视HD
 http://bgs.cchui.fun:7912/rtp/233.50.201.142:5140
-#EXTINF:-1 tvg-id="四川卫视HD" tvg-name="四川卫视HD" group-title="其它频道",四川卫视HD
-http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.139:5140
 #EXTINF:-1 tvg-id="四川卫视HD" tvg-name="四川卫视HD" group-title="其它频道",四川卫视HD
 http://jellyfin.eversouthhangzhou.com.cn:8188/rtp/233.50.201.139:5140
 #EXTINF:-1 tvg-id="四川卫视HD" tvg-name="四川卫视HD" group-title="其它频道",四川卫视HD
 http://123.157.31.182:7912/rtp/233.50.201.139:5140
 #EXTINF:-1 tvg-id="四川卫视HD" tvg-name="四川卫视HD" group-title="其它频道",四川卫视HD
+http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.139:5140
+#EXTINF:-1 tvg-id="四川卫视HD" tvg-name="四川卫视HD" group-title="其它频道",四川卫视HD
 http://bgs.cchui.fun:7912/rtp/233.50.201.139:5140
-#EXTINF:-1 tvg-id="黑龙江卫视HD" tvg-name="黑龙江卫视HD" group-title="其它频道",黑龙江卫视HD
-http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.115:5140
 #EXTINF:-1 tvg-id="黑龙江卫视HD" tvg-name="黑龙江卫视HD" group-title="其它频道",黑龙江卫视HD
 http://jellyfin.eversouthhangzhou.com.cn:8188/rtp/233.50.201.115:5140
 #EXTINF:-1 tvg-id="黑龙江卫视HD" tvg-name="黑龙江卫视HD" group-title="其它频道",黑龙江卫视HD
 http://123.157.31.182:7912/rtp/233.50.201.115:5140
 #EXTINF:-1 tvg-id="黑龙江卫视HD" tvg-name="黑龙江卫视HD" group-title="其它频道",黑龙江卫视HD
+http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.115:5140
+#EXTINF:-1 tvg-id="黑龙江卫视HD" tvg-name="黑龙江卫视HD" group-title="其它频道",黑龙江卫视HD
 http://bgs.cchui.fun:7912/rtp/233.50.201.115:5140
-#EXTINF:-1 tvg-id="安徽卫视HD" tvg-name="安徽卫视HD" group-title="其它频道",安徽卫视HD
-http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.113:5140
 #EXTINF:-1 tvg-id="安徽卫视HD" tvg-name="安徽卫视HD" group-title="其它频道",安徽卫视HD
 http://jellyfin.eversouthhangzhou.com.cn:8188/rtp/233.50.201.113:5140
 #EXTINF:-1 tvg-id="安徽卫视HD" tvg-name="安徽卫视HD" group-title="其它频道",安徽卫视HD
 http://123.157.31.182:7912/rtp/233.50.201.113:5140
 #EXTINF:-1 tvg-id="安徽卫视HD" tvg-name="安徽卫视HD" group-title="其它频道",安徽卫视HD
+http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.113:5140
+#EXTINF:-1 tvg-id="安徽卫视HD" tvg-name="安徽卫视HD" group-title="其它频道",安徽卫视HD
 http://bgs.cchui.fun:7912/rtp/233.50.201.113:5140
-#EXTINF:-1 tvg-id="江西卫视HD" tvg-name="江西卫视HD" group-title="其它频道",江西卫视HD
-http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.145:5140
 #EXTINF:-1 tvg-id="江西卫视HD" tvg-name="江西卫视HD" group-title="其它频道",江西卫视HD
 http://jellyfin.eversouthhangzhou.com.cn:8188/rtp/233.50.201.145:5140
 #EXTINF:-1 tvg-id="江西卫视HD" tvg-name="江西卫视HD" group-title="其它频道",江西卫视HD
 http://123.157.31.182:7912/rtp/233.50.201.145:5140
 #EXTINF:-1 tvg-id="江西卫视HD" tvg-name="江西卫视HD" group-title="其它频道",江西卫视HD
+http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.145:5140
+#EXTINF:-1 tvg-id="江西卫视HD" tvg-name="江西卫视HD" group-title="其它频道",江西卫视HD
 http://bgs.cchui.fun:7912/rtp/233.50.201.145:5140
-#EXTINF:-1 tvg-id="湖北卫视HD" tvg-name="湖北卫视HD" group-title="其它频道",湖北卫视HD
-http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.114:5140
 #EXTINF:-1 tvg-id="湖北卫视HD" tvg-name="湖北卫视HD" group-title="其它频道",湖北卫视HD
 http://jellyfin.eversouthhangzhou.com.cn:8188/rtp/233.50.201.114:5140
 #EXTINF:-1 tvg-id="湖北卫视HD" tvg-name="湖北卫视HD" group-title="其它频道",湖北卫视HD
 http://123.157.31.182:7912/rtp/233.50.201.114:5140
 #EXTINF:-1 tvg-id="湖北卫视HD" tvg-name="湖北卫视HD" group-title="其它频道",湖北卫视HD
+http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.114:5140
+#EXTINF:-1 tvg-id="湖北卫视HD" tvg-name="湖北卫视HD" group-title="其它频道",湖北卫视HD
 http://bgs.cchui.fun:7912/rtp/233.50.201.114:5140
-#EXTINF:-1 tvg-id="东南卫视HD" tvg-name="东南卫视HD" group-title="其它频道",东南卫视HD
-http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.146:5140
 #EXTINF:-1 tvg-id="东南卫视HD" tvg-name="东南卫视HD" group-title="其它频道",东南卫视HD
 http://jellyfin.eversouthhangzhou.com.cn:8188/rtp/233.50.201.146:5140
 #EXTINF:-1 tvg-id="东南卫视HD" tvg-name="东南卫视HD" group-title="其它频道",东南卫视HD
 http://123.157.31.182:7912/rtp/233.50.201.146:5140
 #EXTINF:-1 tvg-id="东南卫视HD" tvg-name="东南卫视HD" group-title="其它频道",东南卫视HD
+http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.146:5140
+#EXTINF:-1 tvg-id="东南卫视HD" tvg-name="东南卫视HD" group-title="其它频道",东南卫视HD
 http://bgs.cchui.fun:7912/rtp/233.50.201.146:5140
-#EXTINF:-1 tvg-id="辽宁卫视HD" tvg-name="辽宁卫视HD" group-title="其它频道",辽宁卫视HD
-http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.141:5140
 #EXTINF:-1 tvg-id="辽宁卫视HD" tvg-name="辽宁卫视HD" group-title="其它频道",辽宁卫视HD
 http://jellyfin.eversouthhangzhou.com.cn:8188/rtp/233.50.201.141:5140
 #EXTINF:-1 tvg-id="辽宁卫视HD" tvg-name="辽宁卫视HD" group-title="其它频道",辽宁卫视HD
 http://123.157.31.182:7912/rtp/233.50.201.141:5140
 #EXTINF:-1 tvg-id="辽宁卫视HD" tvg-name="辽宁卫视HD" group-title="其它频道",辽宁卫视HD
+http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.141:5140
+#EXTINF:-1 tvg-id="辽宁卫视HD" tvg-name="辽宁卫视HD" group-title="其它频道",辽宁卫视HD
 http://bgs.cchui.fun:7912/rtp/233.50.201.141:5140
-#EXTINF:-1 tvg-id="湖南卫视HD" tvg-name="湖南卫视HD" group-title="其它频道",湖南卫视HD
-http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.103:5140
 #EXTINF:-1 tvg-id="湖南卫视HD" tvg-name="湖南卫视HD" group-title="其它频道",湖南卫视HD
 http://jellyfin.eversouthhangzhou.com.cn:8188/rtp/233.50.201.103:5140
 #EXTINF:-1 tvg-id="湖南卫视HD" tvg-name="湖南卫视HD" group-title="其它频道",湖南卫视HD
 http://123.157.31.182:7912/rtp/233.50.201.103:5140
 #EXTINF:-1 tvg-id="湖南卫视HD" tvg-name="湖南卫视HD" group-title="其它频道",湖南卫视HD
+http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.103:5140
+#EXTINF:-1 tvg-id="湖南卫视HD" tvg-name="湖南卫视HD" group-title="其它频道",湖南卫视HD
 http://bgs.cchui.fun:7912/rtp/233.50.201.103:5140
-#EXTINF:-1 tvg-id="广东卫视HD" tvg-name="广东卫视HD" group-title="其它频道",广东卫视HD
-http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.102:5140
 #EXTINF:-1 tvg-id="广东卫视HD" tvg-name="广东卫视HD" group-title="其它频道",广东卫视HD
 http://jellyfin.eversouthhangzhou.com.cn:8188/rtp/233.50.201.102:5140
 #EXTINF:-1 tvg-id="广东卫视HD" tvg-name="广东卫视HD" group-title="其它频道",广东卫视HD
 http://123.157.31.182:7912/rtp/233.50.201.102:5140
 #EXTINF:-1 tvg-id="广东卫视HD" tvg-name="广东卫视HD" group-title="其它频道",广东卫视HD
+http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.102:5140
+#EXTINF:-1 tvg-id="广东卫视HD" tvg-name="广东卫视HD" group-title="其它频道",广东卫视HD
 http://bgs.cchui.fun:7912/rtp/233.50.201.102:5140
-#EXTINF:-1 tvg-id="河南卫视HD" tvg-name="河南卫视HD" group-title="其它频道",河南卫视HD
-http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.144:5140
 #EXTINF:-1 tvg-id="河南卫视HD" tvg-name="河南卫视HD" group-title="其它频道",河南卫视HD
 http://jellyfin.eversouthhangzhou.com.cn:8188/rtp/233.50.201.144:5140
 #EXTINF:-1 tvg-id="河南卫视HD" tvg-name="河南卫视HD" group-title="其它频道",河南卫视HD
 http://123.157.31.182:7912/rtp/233.50.201.144:5140
 #EXTINF:-1 tvg-id="河南卫视HD" tvg-name="河南卫视HD" group-title="其它频道",河南卫视HD
+http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.144:5140
+#EXTINF:-1 tvg-id="河南卫视HD" tvg-name="河南卫视HD" group-title="其它频道",河南卫视HD
 http://bgs.cchui.fun:7912/rtp/233.50.201.144:5140
-#EXTINF:-1 tvg-id="河北卫视HD" tvg-name="河北卫视HD" group-title="其它频道",河北卫视HD
-http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.140:5140
 #EXTINF:-1 tvg-id="河北卫视HD" tvg-name="河北卫视HD" group-title="其它频道",河北卫视HD
 http://jellyfin.eversouthhangzhou.com.cn:8188/rtp/233.50.201.140:5140
 #EXTINF:-1 tvg-id="河北卫视HD" tvg-name="河北卫视HD" group-title="其它频道",河北卫视HD
 http://123.157.31.182:7912/rtp/233.50.201.140:5140
 #EXTINF:-1 tvg-id="河北卫视HD" tvg-name="河北卫视HD" group-title="其它频道",河北卫视HD
+http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.140:5140
+#EXTINF:-1 tvg-id="河北卫视HD" tvg-name="河北卫视HD" group-title="其它频道",河北卫视HD
 http://bgs.cchui.fun:7912/rtp/233.50.201.140:5140
-#EXTINF:-1 tvg-id="北京卫视4K" tvg-name="北京卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/北京卫视4K.png" group-title="4K专区",北京卫视4K
-http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.226:5140
 #EXTINF:-1 tvg-id="北京卫视4K" tvg-name="北京卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/北京卫视4K.png" group-title="4K专区",北京卫视4K
 http://jellyfin.eversouthhangzhou.com.cn:8188/rtp/233.50.201.226:5140
 #EXTINF:-1 tvg-id="北京卫视4K" tvg-name="北京卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/北京卫视4K.png" group-title="4K专区",北京卫视4K
 http://123.157.31.182:7912/rtp/233.50.201.226:5140
 #EXTINF:-1 tvg-id="北京卫视4K" tvg-name="北京卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/北京卫视4K.png" group-title="4K专区",北京卫视4K
+http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.226:5140
+#EXTINF:-1 tvg-id="北京卫视4K" tvg-name="北京卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/北京卫视4K.png" group-title="4K专区",北京卫视4K
 http://bgs.cchui.fun:7912/rtp/233.50.201.226:5140
-#EXTINF:-1 tvg-id="东方卫视4K" tvg-name="东方卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/东方卫视4K.png" group-title="4K专区",东方卫视4K
-http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.202.105:5140
 #EXTINF:-1 tvg-id="东方卫视4K" tvg-name="东方卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/东方卫视4K.png" group-title="4K专区",东方卫视4K
 http://jellyfin.eversouthhangzhou.com.cn:8188/rtp/233.50.202.105:5140
 #EXTINF:-1 tvg-id="东方卫视4K" tvg-name="东方卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/东方卫视4K.png" group-title="4K专区",东方卫视4K
 http://123.157.31.182:7912/rtp/233.50.202.105:5140
 #EXTINF:-1 tvg-id="东方卫视4K" tvg-name="东方卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/东方卫视4K.png" group-title="4K专区",东方卫视4K
+http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.202.105:5140
+#EXTINF:-1 tvg-id="东方卫视4K" tvg-name="东方卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/东方卫视4K.png" group-title="4K专区",东方卫视4K
 http://bgs.cchui.fun:7912/rtp/233.50.202.105:5140
-#EXTINF:-1 tvg-id="广东卫视4K" tvg-name="广东卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/广东卫视4K.png" group-title="4K专区",广东卫视4K
-http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.202.101:5140
 #EXTINF:-1 tvg-id="广东卫视4K" tvg-name="广东卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/广东卫视4K.png" group-title="4K专区",广东卫视4K
 http://jellyfin.eversouthhangzhou.com.cn:8188/rtp/233.50.202.101:5140
 #EXTINF:-1 tvg-id="广东卫视4K" tvg-name="广东卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/广东卫视4K.png" group-title="4K专区",广东卫视4K
 http://123.157.31.182:7912/rtp/233.50.202.101:5140
 #EXTINF:-1 tvg-id="广东卫视4K" tvg-name="广东卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/广东卫视4K.png" group-title="4K专区",广东卫视4K
+http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.202.101:5140
+#EXTINF:-1 tvg-id="广东卫视4K" tvg-name="广东卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/广东卫视4K.png" group-title="4K专区",广东卫视4K
 http://bgs.cchui.fun:7912/rtp/233.50.202.101:5140
-#EXTINF:-1 tvg-id="深圳卫视4K" tvg-name="深圳卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/深圳卫视4K.png" group-title="4K专区",深圳卫视4K
-http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.202.102:5140
 #EXTINF:-1 tvg-id="深圳卫视4K" tvg-name="深圳卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/深圳卫视4K.png" group-title="4K专区",深圳卫视4K
 http://jellyfin.eversouthhangzhou.com.cn:8188/rtp/233.50.202.102:5140
 #EXTINF:-1 tvg-id="深圳卫视4K" tvg-name="深圳卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/深圳卫视4K.png" group-title="4K专区",深圳卫视4K
 http://123.157.31.182:7912/rtp/233.50.202.102:5140
 #EXTINF:-1 tvg-id="深圳卫视4K" tvg-name="深圳卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/深圳卫视4K.png" group-title="4K专区",深圳卫视4K
+http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.202.102:5140
+#EXTINF:-1 tvg-id="深圳卫视4K" tvg-name="深圳卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/深圳卫视4K.png" group-title="4K专区",深圳卫视4K
 http://bgs.cchui.fun:7912/rtp/233.50.202.102:5140
-#EXTINF:-1 tvg-id="湖南卫视4K" tvg-name="湖南卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/湖南卫视4K.png" group-title="4K专区",湖南卫视4K
-http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.202.106:5140
 #EXTINF:-1 tvg-id="湖南卫视4K" tvg-name="湖南卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/湖南卫视4K.png" group-title="4K专区",湖南卫视4K
 http://jellyfin.eversouthhangzhou.com.cn:8188/rtp/233.50.202.106:5140
 #EXTINF:-1 tvg-id="湖南卫视4K" tvg-name="湖南卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/湖南卫视4K.png" group-title="4K专区",湖南卫视4K
 http://123.157.31.182:7912/rtp/233.50.202.106:5140
 #EXTINF:-1 tvg-id="湖南卫视4K" tvg-name="湖南卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/湖南卫视4K.png" group-title="4K专区",湖南卫视4K
+http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.202.106:5140
+#EXTINF:-1 tvg-id="湖南卫视4K" tvg-name="湖南卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/湖南卫视4K.png" group-title="4K专区",湖南卫视4K
 http://bgs.cchui.fun:7912/rtp/233.50.202.106:5140
-#EXTINF:-1 tvg-id="山东卫视4K" tvg-name="山东卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/山东卫视4K.png" group-title="4K专区",山东卫视4K
-http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.202.108:5140
 #EXTINF:-1 tvg-id="山东卫视4K" tvg-name="山东卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/山东卫视4K.png" group-title="4K专区",山东卫视4K
 http://jellyfin.eversouthhangzhou.com.cn:8188/rtp/233.50.202.108:5140
 #EXTINF:-1 tvg-id="山东卫视4K" tvg-name="山东卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/山东卫视4K.png" group-title="4K专区",山东卫视4K
 http://123.157.31.182:7912/rtp/233.50.202.108:5140
 #EXTINF:-1 tvg-id="山东卫视4K" tvg-name="山东卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/山东卫视4K.png" group-title="4K专区",山东卫视4K
+http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.202.108:5140
+#EXTINF:-1 tvg-id="山东卫视4K" tvg-name="山东卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/山东卫视4K.png" group-title="4K专区",山东卫视4K
 http://bgs.cchui.fun:7912/rtp/233.50.202.108:5140
-#EXTINF:-1 tvg-id="四川卫视4K" tvg-name="四川卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/四川卫视4K.png" group-title="4K专区",四川卫视4K
-http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.202.109:5140
 #EXTINF:-1 tvg-id="四川卫视4K" tvg-name="四川卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/四川卫视4K.png" group-title="4K专区",四川卫视4K
 http://jellyfin.eversouthhangzhou.com.cn:8188/rtp/233.50.202.109:5140
 #EXTINF:-1 tvg-id="四川卫视4K" tvg-name="四川卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/四川卫视4K.png" group-title="4K专区",四川卫视4K
 http://123.157.31.182:7912/rtp/233.50.202.109:5140
 #EXTINF:-1 tvg-id="四川卫视4K" tvg-name="四川卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/四川卫视4K.png" group-title="4K专区",四川卫视4K
+http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.202.109:5140
+#EXTINF:-1 tvg-id="四川卫视4K" tvg-name="四川卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/四川卫视4K.png" group-title="4K专区",四川卫视4K
 http://bgs.cchui.fun:7912/rtp/233.50.202.109:5140
-#EXTINF:-1 tvg-id="浙江卫视4K" tvg-name="浙江卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/浙江卫视4K.png" group-title="4K专区",浙江卫视4K
-http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.202.104:5140
 #EXTINF:-1 tvg-id="浙江卫视4K" tvg-name="浙江卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/浙江卫视4K.png" group-title="4K专区",浙江卫视4K
 http://jellyfin.eversouthhangzhou.com.cn:8188/rtp/233.50.202.104:5140
 #EXTINF:-1 tvg-id="浙江卫视4K" tvg-name="浙江卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/浙江卫视4K.png" group-title="4K专区",浙江卫视4K
 http://123.157.31.182:7912/rtp/233.50.202.104:5140
 #EXTINF:-1 tvg-id="浙江卫视4K" tvg-name="浙江卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/浙江卫视4K.png" group-title="4K专区",浙江卫视4K
+http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.202.104:5140
+#EXTINF:-1 tvg-id="浙江卫视4K" tvg-name="浙江卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/浙江卫视4K.png" group-title="4K专区",浙江卫视4K
 http://bgs.cchui.fun:7912/rtp/233.50.202.104:5140
-#EXTINF:-1 tvg-id="江苏卫视4K" tvg-name="江苏卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/江苏卫视4K.png" group-title="4K专区",江苏卫视4K
-http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.202.107:5140
 #EXTINF:-1 tvg-id="江苏卫视4K" tvg-name="江苏卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/江苏卫视4K.png" group-title="4K专区",江苏卫视4K
 http://jellyfin.eversouthhangzhou.com.cn:8188/rtp/233.50.202.107:5140
 #EXTINF:-1 tvg-id="江苏卫视4K" tvg-name="江苏卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/江苏卫视4K.png" group-title="4K专区",江苏卫视4K
 http://123.157.31.182:7912/rtp/233.50.202.107:5140
 #EXTINF:-1 tvg-id="江苏卫视4K" tvg-name="江苏卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/江苏卫视4K.png" group-title="4K专区",江苏卫视4K
+http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.202.107:5140
+#EXTINF:-1 tvg-id="江苏卫视4K" tvg-name="江苏卫视4K" tvg-logo="tvg-logo="https://png-1hf.pages.dev/江苏卫视4K.png" group-title="4K专区",江苏卫视4K
 http://bgs.cchui.fun:7912/rtp/233.50.202.107:5140
-#EXTINF:-1 tvg-id="游戏风云HD" tvg-name="游戏风云HD" group-title="体育频道",游戏风云HD
-http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.183:5140
 #EXTINF:-1 tvg-id="游戏风云HD" tvg-name="游戏风云HD" group-title="体育频道",游戏风云HD
 http://jellyfin.eversouthhangzhou.com.cn:8188/rtp/233.50.201.183:5140
 #EXTINF:-1 tvg-id="游戏风云HD" tvg-name="游戏风云HD" group-title="体育频道",游戏风云HD
 http://123.157.31.182:7912/rtp/233.50.201.183:5140
 #EXTINF:-1 tvg-id="游戏风云HD" tvg-name="游戏风云HD" group-title="体育频道",游戏风云HD
+http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.183:5140
+#EXTINF:-1 tvg-id="游戏风云HD" tvg-name="游戏风云HD" group-title="体育频道",游戏风云HD
 http://bgs.cchui.fun:7912/rtp/233.50.201.183:5140
-#EXTINF:-1 tvg-id="快乐垂钓HD" tvg-name="快乐垂钓HD" group-title="体育频道",快乐垂钓HD
-http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.109:5140
 #EXTINF:-1 tvg-id="快乐垂钓HD" tvg-name="快乐垂钓HD" group-title="体育频道",快乐垂钓HD
 http://jellyfin.eversouthhangzhou.com.cn:8188/rtp/233.50.201.109:5140
 #EXTINF:-1 tvg-id="快乐垂钓HD" tvg-name="快乐垂钓HD" group-title="体育频道",快乐垂钓HD
 http://123.157.31.182:7912/rtp/233.50.201.109:5140
 #EXTINF:-1 tvg-id="快乐垂钓HD" tvg-name="快乐垂钓HD" group-title="体育频道",快乐垂钓HD
+http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.109:5140
+#EXTINF:-1 tvg-id="快乐垂钓HD" tvg-name="快乐垂钓HD" group-title="体育频道",快乐垂钓HD
 http://bgs.cchui.fun:7912/rtp/233.50.201.109:5140
-#EXTINF:-1 tvg-id="睛彩竞技HD" tvg-name="睛彩竞技HD" group-title="体育频道",睛彩竞技HD
-http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.202.26:5140
 #EXTINF:-1 tvg-id="睛彩竞技HD" tvg-name="睛彩竞技HD" group-title="体育频道",睛彩竞技HD
 http://jellyfin.eversouthhangzhou.com.cn:8188/rtp/233.50.202.26:5140
 #EXTINF:-1 tvg-id="睛彩竞技HD" tvg-name="睛彩竞技HD" group-title="体育频道",睛彩竞技HD
 http://123.157.31.182:7912/rtp/233.50.202.26:5140
 #EXTINF:-1 tvg-id="睛彩竞技HD" tvg-name="睛彩竞技HD" group-title="体育频道",睛彩竞技HD
+http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.202.26:5140
+#EXTINF:-1 tvg-id="睛彩竞技HD" tvg-name="睛彩竞技HD" group-title="体育频道",睛彩竞技HD
 http://bgs.cchui.fun:7912/rtp/233.50.202.26:5140
-#EXTINF:-1 tvg-id="睛彩广场舞HD" tvg-name="睛彩广场舞HD" group-title="体育频道",睛彩广场舞HD
-http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.202.29:5140
 #EXTINF:-1 tvg-id="睛彩广场舞HD" tvg-name="睛彩广场舞HD" group-title="体育频道",睛彩广场舞HD
 http://jellyfin.eversouthhangzhou.com.cn:8188/rtp/233.50.202.29:5140
 #EXTINF:-1 tvg-id="睛彩广场舞HD" tvg-name="睛彩广场舞HD" group-title="体育频道",睛彩广场舞HD
 http://123.157.31.182:7912/rtp/233.50.202.29:5140
 #EXTINF:-1 tvg-id="睛彩广场舞HD" tvg-name="睛彩广场舞HD" group-title="体育频道",睛彩广场舞HD
+http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.202.29:5140
+#EXTINF:-1 tvg-id="睛彩广场舞HD" tvg-name="睛彩广场舞HD" group-title="体育频道",睛彩广场舞HD
 http://bgs.cchui.fun:7912/rtp/233.50.202.29:5140
-#EXTINF:-1 tvg-id="睛彩篮球HD" tvg-name="睛彩篮球HD" group-title="体育频道",睛彩篮球HD
-http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.202.27:5140
 #EXTINF:-1 tvg-id="睛彩篮球HD" tvg-name="睛彩篮球HD" group-title="体育频道",睛彩篮球HD
 http://jellyfin.eversouthhangzhou.com.cn:8188/rtp/233.50.202.27:5140
 #EXTINF:-1 tvg-id="睛彩篮球HD" tvg-name="睛彩篮球HD" group-title="体育频道",睛彩篮球HD
 http://123.157.31.182:7912/rtp/233.50.202.27:5140
 #EXTINF:-1 tvg-id="睛彩篮球HD" tvg-name="睛彩篮球HD" group-title="体育频道",睛彩篮球HD
+http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.202.27:5140
+#EXTINF:-1 tvg-id="睛彩篮球HD" tvg-name="睛彩篮球HD" group-title="体育频道",睛彩篮球HD
 http://bgs.cchui.fun:7912/rtp/233.50.202.27:5140
-#EXTINF:-1 tvg-id="睛彩青少HD" tvg-name="睛彩青少HD" group-title="体育频道",睛彩青少HD
-http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.202.28:5140
 #EXTINF:-1 tvg-id="睛彩青少HD" tvg-name="睛彩青少HD" group-title="体育频道",睛彩青少HD
 http://jellyfin.eversouthhangzhou.com.cn:8188/rtp/233.50.202.28:5140
 #EXTINF:-1 tvg-id="睛彩青少HD" tvg-name="睛彩青少HD" group-title="体育频道",睛彩青少HD
 http://123.157.31.182:7912/rtp/233.50.202.28:5140
 #EXTINF:-1 tvg-id="睛彩青少HD" tvg-name="睛彩青少HD" group-title="体育频道",睛彩青少HD
+http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.202.28:5140
+#EXTINF:-1 tvg-id="睛彩青少HD" tvg-name="睛彩青少HD" group-title="体育频道",睛彩青少HD
 http://bgs.cchui.fun:7912/rtp/233.50.202.28:5140
-#EXTINF:-1 tvg-id="金色学堂HD" tvg-name="金色学堂HD" group-title="少儿频道",金色学堂HD
-http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.186:5140
 #EXTINF:-1 tvg-id="金色学堂HD" tvg-name="金色学堂HD" group-title="少儿频道",金色学堂HD
 http://jellyfin.eversouthhangzhou.com.cn:8188/rtp/233.50.201.186:5140
 #EXTINF:-1 tvg-id="金色学堂HD" tvg-name="金色学堂HD" group-title="少儿频道",金色学堂HD
 http://123.157.31.182:7912/rtp/233.50.201.186:5140
 #EXTINF:-1 tvg-id="金色学堂HD" tvg-name="金色学堂HD" group-title="少儿频道",金色学堂HD
+http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.186:5140
+#EXTINF:-1 tvg-id="金色学堂HD" tvg-name="金色学堂HD" group-title="少儿频道",金色学堂HD
 http://bgs.cchui.fun:7912/rtp/233.50.201.186:5140
-#EXTINF:-1 tvg-id="动漫秀场HD" tvg-name="动漫秀场HD" group-title="少儿频道",动漫秀场HD
-http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.184:5140
 #EXTINF:-1 tvg-id="动漫秀场HD" tvg-name="动漫秀场HD" group-title="少儿频道",动漫秀场HD
 http://jellyfin.eversouthhangzhou.com.cn:8188/rtp/233.50.201.184:5140
 #EXTINF:-1 tvg-id="动漫秀场HD" tvg-name="动漫秀场HD" group-title="少儿频道",动漫秀场HD
 http://123.157.31.182:7912/rtp/233.50.201.184:5140
 #EXTINF:-1 tvg-id="动漫秀场HD" tvg-name="动漫秀场HD" group-title="少儿频道",动漫秀场HD
+http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.184:5140
+#EXTINF:-1 tvg-id="动漫秀场HD" tvg-name="动漫秀场HD" group-title="少儿频道",动漫秀场HD
 http://bgs.cchui.fun:7912/rtp/233.50.201.184:5140
-#EXTINF:-1 tvg-id="卡酷少儿HD" tvg-name="卡酷少儿HD" group-title="少儿频道",卡酷少儿HD
-http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.202.33:5140
 #EXTINF:-1 tvg-id="卡酷少儿HD" tvg-name="卡酷少儿HD" group-title="少儿频道",卡酷少儿HD
 http://jellyfin.eversouthhangzhou.com.cn:8188/rtp/233.50.202.33:5140
 #EXTINF:-1 tvg-id="卡酷少儿HD" tvg-name="卡酷少儿HD" group-title="少儿频道",卡酷少儿HD
 http://123.157.31.182:7912/rtp/233.50.202.33:5140
 #EXTINF:-1 tvg-id="卡酷少儿HD" tvg-name="卡酷少儿HD" group-title="少儿频道",卡酷少儿HD
+http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.202.33:5140
+#EXTINF:-1 tvg-id="卡酷少儿HD" tvg-name="卡酷少儿HD" group-title="少儿频道",卡酷少儿HD
 http://bgs.cchui.fun:7912/rtp/233.50.202.33:5140
-#EXTINF:-1 tvg-id="生活时尚HD" tvg-name="生活时尚HD" group-title="数字频道",生活时尚HD
-http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.187:5140
 #EXTINF:-1 tvg-id="生活时尚HD" tvg-name="生活时尚HD" group-title="数字频道",生活时尚HD
 http://jellyfin.eversouthhangzhou.com.cn:8188/rtp/233.50.201.187:5140
 #EXTINF:-1 tvg-id="生活时尚HD" tvg-name="生活时尚HD" group-title="数字频道",生活时尚HD
 http://123.157.31.182:7912/rtp/233.50.201.187:5140
 #EXTINF:-1 tvg-id="生活时尚HD" tvg-name="生活时尚HD" group-title="数字频道",生活时尚HD
+http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.187:5140
+#EXTINF:-1 tvg-id="生活时尚HD" tvg-name="生活时尚HD" group-title="数字频道",生活时尚HD
 http://bgs.cchui.fun:7912/rtp/233.50.201.187:5140
-#EXTINF:-1 tvg-id="乐游HD" tvg-name="乐游HD" group-title="数字频道",乐游HD
-http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.185:5140
 #EXTINF:-1 tvg-id="乐游HD" tvg-name="乐游HD" group-title="数字频道",乐游HD
 http://jellyfin.eversouthhangzhou.com.cn:8188/rtp/233.50.201.185:5140
 #EXTINF:-1 tvg-id="乐游HD" tvg-name="乐游HD" group-title="数字频道",乐游HD
 http://123.157.31.182:7912/rtp/233.50.201.185:5140
 #EXTINF:-1 tvg-id="乐游HD" tvg-name="乐游HD" group-title="数字频道",乐游HD
+http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.185:5140
+#EXTINF:-1 tvg-id="乐游HD" tvg-name="乐游HD" group-title="数字频道",乐游HD
 http://bgs.cchui.fun:7912/rtp/233.50.201.185:5140
-#EXTINF:-1 tvg-id="法制天地HD" tvg-name="法制天地HD" group-title="数字频道",法制天地HD
-http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.191:5140
 #EXTINF:-1 tvg-id="法制天地HD" tvg-name="法制天地HD" group-title="数字频道",法制天地HD
 http://jellyfin.eversouthhangzhou.com.cn:8188/rtp/233.50.201.191:5140
 #EXTINF:-1 tvg-id="法制天地HD" tvg-name="法制天地HD" group-title="数字频道",法制天地HD
 http://123.157.31.182:7912/rtp/233.50.201.191:5140
 #EXTINF:-1 tvg-id="法制天地HD" tvg-name="法制天地HD" group-title="数字频道",法制天地HD
+http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.191:5140
+#EXTINF:-1 tvg-id="法制天地HD" tvg-name="法制天地HD" group-title="数字频道",法制天地HD
 http://bgs.cchui.fun:7912/rtp/233.50.201.191:5140
-#EXTINF:-1 tvg-id="宁夏卫视HD" tvg-name="宁夏卫视HD" group-title="卫视频道",宁夏卫视HD
-http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.202.45:5140
 #EXTINF:-1 tvg-id="宁夏卫视HD" tvg-name="宁夏卫视HD" group-title="卫视频道",宁夏卫视HD
 http://jellyfin.eversouthhangzhou.com.cn:8188/rtp/233.50.202.45:5140
 #EXTINF:-1 tvg-id="宁夏卫视HD" tvg-name="宁夏卫视HD" group-title="卫视频道",宁夏卫视HD
 http://123.157.31.182:7912/rtp/233.50.202.45:5140
 #EXTINF:-1 tvg-id="宁夏卫视HD" tvg-name="宁夏卫视HD" group-title="卫视频道",宁夏卫视HD
+http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.202.45:5140
+#EXTINF:-1 tvg-id="宁夏卫视HD" tvg-name="宁夏卫视HD" group-title="卫视频道",宁夏卫视HD
 http://bgs.cchui.fun:7912/rtp/233.50.202.45:5140
-#EXTINF:-1 tvg-id="新疆卫视HD" tvg-name="新疆卫视HD" group-title="卫视频道",新疆卫视HD
-http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.202.46:5140
 #EXTINF:-1 tvg-id="新疆卫视HD" tvg-name="新疆卫视HD" group-title="卫视频道",新疆卫视HD
 http://jellyfin.eversouthhangzhou.com.cn:8188/rtp/233.50.202.46:5140
 #EXTINF:-1 tvg-id="新疆卫视HD" tvg-name="新疆卫视HD" group-title="卫视频道",新疆卫视HD
 http://123.157.31.182:7912/rtp/233.50.202.46:5140
 #EXTINF:-1 tvg-id="新疆卫视HD" tvg-name="新疆卫视HD" group-title="卫视频道",新疆卫视HD
+http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.202.46:5140
+#EXTINF:-1 tvg-id="新疆卫视HD" tvg-name="新疆卫视HD" group-title="卫视频道",新疆卫视HD
 http://bgs.cchui.fun:7912/rtp/233.50.202.46:5140
-#EXTINF:-1 tvg-id="西藏卫视HD" tvg-name="西藏卫视HD" group-title="卫视频道",西藏卫视HD
-http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.202.43:5140
 #EXTINF:-1 tvg-id="西藏卫视HD" tvg-name="西藏卫视HD" group-title="卫视频道",西藏卫视HD
 http://jellyfin.eversouthhangzhou.com.cn:8188/rtp/233.50.202.43:5140
 #EXTINF:-1 tvg-id="西藏卫视HD" tvg-name="西藏卫视HD" group-title="卫视频道",西藏卫视HD
 http://123.157.31.182:7912/rtp/233.50.202.43:5140
 #EXTINF:-1 tvg-id="西藏卫视HD" tvg-name="西藏卫视HD" group-title="卫视频道",西藏卫视HD
+http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.202.43:5140
+#EXTINF:-1 tvg-id="西藏卫视HD" tvg-name="西藏卫视HD" group-title="卫视频道",西藏卫视HD
 http://bgs.cchui.fun:7912/rtp/233.50.202.43:5140
-#EXTINF:-1 tvg-id="兵团卫视HD" tvg-name="兵团卫视HD" group-title="卫视频道",兵团卫视HD
-http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.202.44:5140
 #EXTINF:-1 tvg-id="兵团卫视HD" tvg-name="兵团卫视HD" group-title="卫视频道",兵团卫视HD
 http://jellyfin.eversouthhangzhou.com.cn:8188/rtp/233.50.202.44:5140
 #EXTINF:-1 tvg-id="兵团卫视HD" tvg-name="兵团卫视HD" group-title="卫视频道",兵团卫视HD
 http://123.157.31.182:7912/rtp/233.50.202.44:5140
 #EXTINF:-1 tvg-id="兵团卫视HD" tvg-name="兵团卫视HD" group-title="卫视频道",兵团卫视HD
+http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.202.44:5140
+#EXTINF:-1 tvg-id="兵团卫视HD" tvg-name="兵团卫视HD" group-title="卫视频道",兵团卫视HD
 http://bgs.cchui.fun:7912/rtp/233.50.202.44:5140
-#EXTINF:-1 tvg-id="凤凰中文HD" tvg-name="凤凰中文HD" group-title="港澳台频道",凤凰中文HD
-http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.202.35:5140
 #EXTINF:-1 tvg-id="凤凰中文HD" tvg-name="凤凰中文HD" group-title="港澳台频道",凤凰中文HD
 http://jellyfin.eversouthhangzhou.com.cn:8188/rtp/233.50.202.35:5140
 #EXTINF:-1 tvg-id="凤凰中文HD" tvg-name="凤凰中文HD" group-title="港澳台频道",凤凰中文HD
 http://123.157.31.182:7912/rtp/233.50.202.35:5140
 #EXTINF:-1 tvg-id="凤凰中文HD" tvg-name="凤凰中文HD" group-title="港澳台频道",凤凰中文HD
+http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.202.35:5140
+#EXTINF:-1 tvg-id="凤凰中文HD" tvg-name="凤凰中文HD" group-title="港澳台频道",凤凰中文HD
 http://bgs.cchui.fun:7912/rtp/233.50.202.35:5140
-#EXTINF:-1 tvg-id="凤凰资讯HD" tvg-name="凤凰资讯HD" group-title="港澳台频道",凤凰资讯HD
-http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.202.36:5140
 #EXTINF:-1 tvg-id="凤凰资讯HD" tvg-name="凤凰资讯HD" group-title="港澳台频道",凤凰资讯HD
 http://jellyfin.eversouthhangzhou.com.cn:8188/rtp/233.50.202.36:5140
 #EXTINF:-1 tvg-id="凤凰资讯HD" tvg-name="凤凰资讯HD" group-title="港澳台频道",凤凰资讯HD
 http://123.157.31.182:7912/rtp/233.50.202.36:5140
+#EXTINF:-1 tvg-id="凤凰资讯HD" tvg-name="凤凰资讯HD" group-title="港澳台频道",凤凰资讯HD
+http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.202.36:5140
 #EXTINF:-1 tvg-id="凤凰资讯HD" tvg-name="凤凰资讯HD" group-title="港澳台频道",凤凰资讯HD
 http://bgs.cchui.fun:7912/rtp/233.50.202.36:5140
